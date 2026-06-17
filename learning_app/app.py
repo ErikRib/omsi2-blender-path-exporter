@@ -1,6 +1,6 @@
 import json
 import os
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, Response
 from modules.math_solver import (
     weighted_average, factorial, solve_first_degree, solve_second_degree,
     calculate_area, calculate_volume, calculate_perimeter,
@@ -20,6 +20,28 @@ def load_json(path):
 @app.route("/")
 def index():
     return render_template("index.html")
+
+
+@app.route("/manifest.json")
+def manifest():
+    data = {
+        "name": "Aprenda+",
+        "short_name": "Aprenda+",
+        "description": "Python, Matemática, Português e Inglês na palma da mão",
+        "start_url": "/",
+        "display": "standalone",
+        "background_color": "#f8fafc",
+        "theme_color": "#1e293b",
+        "orientation": "portrait",
+        "icons": [
+            {"src": "/static/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
+            {"src": "/static/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"},
+            {"src": "/static/icons/icon.svg", "sizes": "any", "type": "image/svg+xml"},
+        ],
+        "categories": ["education"],
+        "lang": "pt-BR",
+    }
+    return Response(json.dumps(data), mimetype="application/manifest+json")
 
 
 # ── MATH ──────────────────────────────────────────────────────────────────────
