@@ -1,0 +1,310 @@
+{
+  "levels": [
+    {
+      "id": "A1",
+      "name": "Beginner",
+      "name_pt": "Iniciante",
+      "description": "First words and basic phrases.",
+      "topics": [
+        {
+          "id": "greetings",
+          "title": "Greetings & Introductions",
+          "title_pt": "Cumprimentos e Apresentações",
+          "content": [
+            {"english": "Hello / Hi", "portuguese": "Olá"},
+            {"english": "Good morning", "portuguese": "Bom dia"},
+            {"english": "Good afternoon", "portuguese": "Boa tarde"},
+            {"english": "Good night / Good evening", "portuguese": "Boa noite"},
+            {"english": "My name is...", "portuguese": "Meu nome é..."},
+            {"english": "Nice to meet you", "portuguese": "Prazer em conhecê-lo(a)"},
+            {"english": "How are you?", "portuguese": "Como você está?"},
+            {"english": "I'm fine, thank you.", "portuguese": "Estou bem, obrigado(a)."},
+            {"english": "Where are you from?", "portuguese": "De onde você é?"},
+            {"english": "I'm from Brazil.", "portuguese": "Sou do Brasil."}
+          ],
+          "grammar": {
+            "topic": "Verb TO BE (present)",
+            "explanation": "O verbo 'to be' (ser/estar) é o mais importante do inglês.",
+            "table": [
+              {"pronoun": "I", "verb": "am", "example": "I am a student."},
+              {"pronoun": "You", "verb": "are", "example": "You are tall."},
+              {"pronoun": "He / She / It", "verb": "is", "example": "She is happy."},
+              {"pronoun": "We / They", "verb": "are", "example": "They are friends."}
+            ]
+          },
+          "quiz": [
+            {
+              "question": "How do you say 'Bom dia' in English?",
+              "options": ["Good night", "Good morning", "Good afternoon", "Hello"],
+              "answer": 1,
+              "explanation": "'Good morning' = Bom dia (usado até ao meio-dia)."
+            },
+            {
+              "question": "Fill in the blank: 'She ___ my friend.'",
+              "options": ["am", "are", "is", "be"],
+              "answer": 2,
+              "explanation": "She (he/she/it) usa 'is'."
+            },
+            {
+              "question": "What does 'Nice to meet you' mean?",
+              "options": ["Como vai você?", "Prazer em conhecê-lo", "Até logo", "Obrigado"],
+              "answer": 1,
+              "explanation": "'Nice to meet you' = Prazer em conhecê-lo(a), usado ao se apresentar pela primeira vez."
+            }
+          ]
+        },
+        {
+          "id": "numbers",
+          "title": "Numbers & Colors",
+          "title_pt": "Números e Cores",
+          "content": [
+            {"english": "One, Two, Three", "portuguese": "Um, Dois, Três"},
+            {"english": "Four, Five, Six", "portuguese": "Quatro, Cinco, Seis"},
+            {"english": "Seven, Eight, Nine, Ten", "portuguese": "Sete, Oito, Nove, Dez"},
+            {"english": "Red / Blue / Green", "portuguese": "Vermelho / Azul / Verde"},
+            {"english": "Yellow / White / Black", "portuguese": "Amarelo / Branco / Preto"},
+            {"english": "Orange / Pink / Purple", "portuguese": "Laranja / Rosa / Roxo"}
+          ],
+          "quiz": [
+            {
+              "question": "What is 'Azul' in English?",
+              "options": ["Green", "Blue", "Red", "Yellow"],
+              "answer": 1,
+              "explanation": "'Blue' = Azul."
+            },
+            {
+              "question": "How do you write the number 7 in English?",
+              "options": ["Six", "Eight", "Seven", "Five"],
+              "answer": 2,
+              "explanation": "7 = Seven em inglês."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "A2",
+      "name": "Elementary",
+      "name_pt": "Elementar",
+      "description": "Everyday situations and simple conversations.",
+      "topics": [
+        {
+          "id": "present_simple",
+          "title": "Present Simple",
+          "title_pt": "Presente Simples",
+          "content": [
+            {"english": "I work every day.", "portuguese": "Eu trabalho todos os dias."},
+            {"english": "She likes coffee.", "portuguese": "Ela gosta de café."},
+            {"english": "They don't eat meat.", "portuguese": "Eles não comem carne."},
+            {"english": "Do you speak English?", "portuguese": "Você fala inglês?"},
+            {"english": "Does he live here?", "portuguese": "Ele mora aqui?"}
+          ],
+          "grammar": {
+            "topic": "Present Simple Rules",
+            "explanation": "Usado para hábitos, rotinas e fatos. Na 3ª pessoa do singular (he/she/it), adiciona-se -s/-es ao verbo.",
+            "rules": [
+              "I/You/We/They + verbo base: 'I work'",
+              "He/She/It + verbo + s/es: 'He works'",
+              "Negativa: don't / doesn't + verbo base",
+              "Interrogativa: Do / Does + sujeito + verbo base"
+            ]
+          },
+          "quiz": [
+            {
+              "question": "Choose the correct form: 'He ___ to school every day.'",
+              "options": ["go", "goes", "going", "gone"],
+              "answer": 1,
+              "explanation": "He (3ª pessoa singular) → goes (go + es)."
+            },
+            {
+              "question": "Make it negative: 'She drinks coffee.'",
+              "options": ["She not drinks coffee.", "She doesn't drinks coffee.", "She doesn't drink coffee.", "She don't drink coffee."],
+              "answer": 2,
+              "explanation": "He/She/It usa 'doesn't' + verbo na forma base (sem -s)."
+            }
+          ]
+        },
+        {
+          "id": "past_simple",
+          "title": "Past Simple",
+          "title_pt": "Passado Simples",
+          "content": [
+            {"english": "I worked yesterday.", "portuguese": "Eu trabalhei ontem."},
+            {"english": "She went to the store.", "portuguese": "Ela foi à loja."},
+            {"english": "We didn't watch TV.", "portuguese": "Nós não assistimos TV."},
+            {"english": "Did you call me?", "portuguese": "Você me ligou?"}
+          ],
+          "grammar": {
+            "topic": "Past Simple Rules",
+            "explanation": "Usado para ações concluídas no passado. Verbos regulares recebem -ed; irregulares têm formas próprias.",
+            "rules": [
+              "Verbos regulares: work → worked, call → called",
+              "Verbos irregulares: go → went, have → had, see → saw",
+              "Negativa: didn't + verbo base",
+              "Interrogativa: Did + sujeito + verbo base"
+            ]
+          },
+          "quiz": [
+            {
+              "question": "What is the past of 'go'?",
+              "options": ["goed", "went", "gone", "goes"],
+              "answer": 1,
+              "explanation": "'Go' é irregular: go → went (passado simples)."
+            },
+            {
+              "question": "'I ___ (eat) pizza last night.'",
+              "options": ["eated", "ate", "eat", "eaten"],
+              "answer": 1,
+              "explanation": "Eat é irregular: eat → ate."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B1",
+      "name": "Intermediate",
+      "name_pt": "Intermediário",
+      "description": "Clear communication on familiar topics.",
+      "topics": [
+        {
+          "id": "present_perfect",
+          "title": "Present Perfect",
+          "title_pt": "Presente Perfeito",
+          "content": [
+            {"english": "I have lived here for 5 years.", "portuguese": "Eu moro aqui há 5 anos."},
+            {"english": "She has never been to Europe.", "portuguese": "Ela nunca foi à Europa."},
+            {"english": "Have you ever eaten sushi?", "portuguese": "Você já comeu sushi?"},
+            {"english": "We have just finished the project.", "portuguese": "Nós acabamos de terminar o projeto."}
+          ],
+          "grammar": {
+            "topic": "Present Perfect: have/has + past participle",
+            "explanation": "Usado para experiências de vida, ações que continuam no presente ou ações recentes. Conecta passado e presente.",
+            "rules": [
+              "Formação: have/has + past participle (3ª coluna)",
+              "I/You/We/They have worked",
+              "He/She/It has worked",
+              "Palavras-chave: ever, never, already, yet, just, for, since"
+            ]
+          },
+          "quiz": [
+            {
+              "question": "'She ___ (never/see) that movie.'",
+              "options": ["has never saw", "have never seen", "has never seen", "never has seen"],
+              "answer": 2,
+              "explanation": "She = has; see → seen (particípio); 'never' fica entre has e seen."
+            },
+            {
+              "question": "When do we use 'for' vs 'since'?",
+              "options": [
+                "Both mean the same thing.",
+                "'For' = período de tempo; 'since' = ponto de início.",
+                "'For' = ponto de início; 'since' = período de tempo.",
+                "'Since' is used with future."
+              ],
+              "answer": 1,
+              "explanation": "'For 3 years' (período); 'since 2020' (ponto de início)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B2",
+      "name": "Upper-Intermediate",
+      "name_pt": "Intermediário Superior",
+      "description": "Fluent discussions on complex topics.",
+      "topics": [
+        {
+          "id": "conditionals",
+          "title": "Conditionals",
+          "title_pt": "Condicionais (Se...)",
+          "content": [
+            {"english": "If it rains, I'll stay home. (1st conditional)", "portuguese": "Se chover, ficarei em casa. (real/provável)"},
+            {"english": "If I had money, I would travel. (2nd conditional)", "portuguese": "Se eu tivesse dinheiro, viajaria. (hipotético/improvável)"},
+            {"english": "If I had studied, I would have passed. (3rd conditional)", "portuguese": "Se eu tivesse estudado, teria passado. (impossível/passado)"}
+          ],
+          "grammar": {
+            "topic": "Types of Conditionals",
+            "explanation": "Condicionais expressam situações hipotéticas ou seus resultados.",
+            "rules": [
+              "Zero: If + present → present (fatos gerais)",
+              "1st: If + present → will + base (futuro real)",
+              "2nd: If + past → would + base (hipotético)",
+              "3rd: If + past perfect → would have + participle (arrependimento/impossível)"
+            ]
+          },
+          "quiz": [
+            {
+              "question": "Choose the correct conditional: 'If I ___ (be) rich, I ___ (buy) a yacht.'",
+              "options": ["am / will buy", "were / would buy", "was / would have bought", "am / would buy"],
+              "answer": 1,
+              "explanation": "2nd conditional (hipotético): If + were + would + base verb."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "C1",
+      "name": "Advanced",
+      "name_pt": "Avançado",
+      "description": "Sophisticated language for professional and academic contexts.",
+      "topics": [
+        {
+          "id": "passive_voice",
+          "title": "Passive Voice",
+          "title_pt": "Voz Passiva",
+          "content": [
+            {"english": "The book was written by Machado de Assis.", "portuguese": "O livro foi escrito por Machado de Assis."},
+            {"english": "The project is being reviewed.", "portuguese": "O projeto está sendo revisado."},
+            {"english": "The report will be submitted tomorrow.", "portuguese": "O relatório será entregue amanhã."}
+          ],
+          "grammar": {
+            "topic": "Passive Voice Formation",
+            "explanation": "Usada quando o sujeito sofre a ação, ou quando o agente é desconhecido/irrelevante.",
+            "rules": [
+              "Formação: to be (conjugado) + past participle",
+              "Present: The car is repaired.",
+              "Past: The car was repaired.",
+              "Future: The car will be repaired.",
+              "Agente introduzido por 'by': 'The car was fixed by the mechanic.'"
+            ]
+          },
+          "quiz": [
+            {
+              "question": "Convert to passive: 'The chef cooked the meal.'",
+              "options": [
+                "The meal cooked by the chef.",
+                "The meal was cooked by the chef.",
+                "The meal is cooked by the chef.",
+                "The chef was cooked the meal."
+              ],
+              "answer": 1,
+              "explanation": "Passado simples passivo: was/were + past participle. 'The meal was cooked by the chef.'"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "vocabulary": {
+    "A1": [
+      {"word": "apple", "translation": "maçã", "example": "I eat an apple every day."},
+      {"word": "book", "translation": "livro", "example": "This is a great book."},
+      {"word": "car", "translation": "carro", "example": "My car is blue."},
+      {"word": "dog", "translation": "cachorro", "example": "The dog is friendly."},
+      {"word": "house", "translation": "casa", "example": "I live in a big house."},
+      {"word": "water", "translation": "água", "example": "Can I have some water, please?"},
+      {"word": "food", "translation": "comida", "example": "Brazilian food is delicious."},
+      {"word": "happy", "translation": "feliz", "example": "I am very happy today."}
+    ],
+    "B1": [
+      {"word": "although", "translation": "embora / apesar de", "example": "Although it was raining, we went out."},
+      {"word": "therefore", "translation": "portanto / por isso", "example": "He was tired; therefore, he went to bed early."},
+      {"word": "furthermore", "translation": "além disso", "example": "The plan is cheap; furthermore, it's effective."},
+      {"word": "despite", "translation": "apesar de", "example": "Despite the rain, she smiled."},
+      {"word": "meanwhile", "translation": "enquanto isso", "example": "She cooked; meanwhile, he set the table."}
+    ]
+  }
+}

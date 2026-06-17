@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Português{% endblock %}
+{% block page_title %}Português{% endblock %}
+
+{% block content %}
+<div class="section-header" style="background: linear-gradient(135deg, #059669, #10b981)">
+  <h2 class="fw-bold mb-1">📝 Português Brasileiro</h2>
+  <p class="mb-0 opacity-75">Interpretação, Redação e Gramática</p>
+</div>
+
+<div class="row g-3">
+  <div class="col-12">
+    <a href="/portugues/interpretacao" class="text-decoration-none">
+      <div class="card card-hover p-3">
+        <div class="d-flex align-items-center">
+          <span class="fs-2 me-3">📖</span>
+          <div>
+            <div class="fw-bold">Interpretação de Texto</div>
+            <small class="text-muted">{{ data.interpretacao|length }} textos com questões comentadas</small>
+          </div>
+          <i class="bi bi-chevron-right ms-auto text-muted"></i>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="col-12">
+    <a href="/portugues/redacao" class="text-decoration-none">
+      <div class="card card-hover p-3">
+        <div class="d-flex align-items-center">
+          <span class="fs-2 me-3">✍️</span>
+          <div>
+            <div class="fw-bold">Guia de Redação</div>
+            <small class="text-muted">Dissertativo-Argumentativo, conectivos e estrutura</small>
+          </div>
+          <i class="bi bi-chevron-right ms-auto text-muted"></i>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="col-12">
+    <a href="/portugues/gramatica" class="text-decoration-none">
+      <div class="card card-hover p-3">
+        <div class="d-flex align-items-center">
+          <span class="fs-2 me-3">🔤</span>
+          <div>
+            <div class="fw-bold">Gramática</div>
+            <small class="text-muted">Concordância, crase e exemplos práticos</small>
+          </div>
+          <i class="bi bi-chevron-right ms-auto text-muted"></i>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+{% endblock %}

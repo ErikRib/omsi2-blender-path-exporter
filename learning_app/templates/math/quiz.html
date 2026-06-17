@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% block title %}Quiz de Matemática{% endblock %}
+{% block page_title %}Quiz{% endblock %}
+
+{% block content %}
+<div class="mb-3">
+  <a href="/math" class="text-decoration-none text-muted"><i class="bi bi-arrow-left"></i> Matemática</a>
+</div>
+
+<div id="quizContainer">
+  <div class="card p-3 mb-3" id="questionCard">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <span class="badge bg-primary" id="questionCounter">Questão 1/10</span>
+      <span class="badge bg-secondary" id="scoreDisplay">Pontos: 0</span>
+    </div>
+    <div class="progress mb-3" style="height:6px">
+      <div class="progress-bar" id="progressBar" style="width:0%"></div>
+    </div>
+    <h6 class="fw-bold" id="questionText">Carregando...</h6>
+    <div id="optionsContainer" class="mt-3"></div>
+    <div id="feedback" class="mt-2" style="display:none"></div>
+    <button class="btn btn-primary w-100 mt-3" id="nextBtn" style="display:none">Próxima →</button>
+  </div>
+</div>
+
+<div id="finalCard" class="card p-4 text-center" style="display:none">
+  <div style="font-size:3rem" id="finalEmoji">🎉</div>
+  <h4 class="fw-bold mt-2" id="finalTitle">Parabéns!</h4>
+  <p id="finalText" class="text-muted"></p>
+  <div class="result-box my-3">
+    <div class="small opacity-75">Sua pontuação</div>
+    <div class="fw-bold" style="font-size:2.5rem" id="finalScore">0/10</div>
+  </div>
+  <button class="btn btn-primary w-100" onclick="location.reload()">Tentar Novamente</button>
+  <a href="/math" class="btn btn-outline-secondary w-100 mt-2">Voltar ao Menu</a>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+const questions = [
+  { q: "Quanto é 5! (fatorial de 5)?", opts: ["60","100","120","150"], a: 2, exp: "5! = 5×4×3×2×1 = 120" },
+  { q: "Qual a média ponderada de nota 8 (peso 2) e nota 6 (peso 3)?", opts: ["6.8","7.0","6.4","7.2"], a: 0, exp: "MP = (8×2 + 6×3)/(2+3) = (16+18)/5 = 34/5 = 6.8" },
+  { q: "Resolva: 3x + 9 = 0", opts: ["x = 3","x = -3","x = 9","x = -9"], a: 1, exp: "3x = -9 → x = -3" },
+  { q: "Qual o discriminante (Δ) de x² - 5x + 6 = 0?", opts: ["1","4","5","25"], a: 0, exp: "Δ = 25 - 24 = 1" },
+  { q: "Área de um quadrado de lado 4cm?", opts: ["8 cm²","12 cm²","16 cm²","20 cm²"], a: 2, exp: "A = l² = 4² = 16 cm²" },
+  { q: "Perímetro de um retângulo 5×3?", opts: ["15","16","18","20"], a: 1, exp: "P = 2×(5+3) = 2×8 = 16" },
+  { q: "Volume de um cubo de aresta 3cm?", opts: ["9 cm³","18 cm³","27 cm³","36 cm³"], a: 2, exp: "V = 3³ = 27 cm³" },
+  { q: "Área de um triângulo com base 6 e altura 4?", opts: ["10","12","24","48"], a: 1, exp: "A = (6×4)/2 = 24/2 = 12" },
+  { q: "Qual a raiz da equação 2x² - 8 = 0?", opts: ["x = ±4","x = ±2","x = ±8","x = ±1"], a: 1, exp: "2x²=8 → x²=4 → x=±2" },
+  { q: "Qual é o volume de um cilindro com r=2 e h=5 (use π≈3.14)?", opts: ["62.8","31.4","125.6","157"], a: 0, exp: "V = π×r²×h = 3.14×4×5 = 62.8" },
+];
+
+let current = 0, score = 0, answered = false;
+
+function render() {
+  const q = questions[current];
+  document.getElementById('questionText').textContent = q.q;
+  document.getElementById('questionCounter').textContent = `Questão ${current+1}/${questions.length}`;
+  document.getElementById('scoreDisplay').textContent = `Pontos: ${score}`;
+  document.getElementById('progressBar').style.width = `${(current/questions.length)*100}%`;
+  document.getElementById('feedback').style.display = 'none';
+  document.getElementById('nextBtn').style.display = 'none';
+  answered = false;
+
+  const container = document.getElementById('optionsContainer');
+  container.innerHTML = '';
+  q.opts.forEach((opt, i) => {
+    const div = document.createElement('div');
+    div.className = 'quiz-option border rounded p-2 mb-2';
+    div.innerHTML = `<span class="badge bg-secondary me-2">${String.fromCharCode(65+i)}</span>${opt}`;
+    div.onclick = () => selectAnswer(i, div);
+    container.appendChild(div);
+  });
+}
+
+function selectAnswer(i, el) {
+  if (answered) return;
+  answered = true;
+  const q = questions[current];
+  const feedback = document.getElementById('feedback');
+  feedback.style.display = 'block';
+
+  document.querySelectorAll('.quiz-option').forEach((opt, idx) => {
+    if (idx === q.a) opt.classList.add('correct');
+  });
+
+  if (i === q.a) {
+    score++;
+    el.classList.add('correct');
+    feedback.innerHTML = `<div class="alert alert-success py-2 mb-0"><i class="bi bi-check-circle-fill me-1"></i><strong>Correto!</strong> ${q.exp}</div>`;
+  } else {
+    el.classList.add('wrong');
+    feedback.innerHTML = `<div class="alert alert-danger py-2 mb-0"><i class="bi bi-x-circle-fill me-1"></i><strong>Incorreto.</strong> ${q.exp}</div>`;
+  }
+  document.getElementById('scoreDisplay').textContent = `Pontos: ${score}`;
+  document.getElementById('nextBtn').style.display = 'block';
+}
+
+document.getElementById('nextBtn').addEventListener('click', () => {
+  current++;
+  if (current >= questions.length) {
+    showFinal();
+  } else {
+    render();
+  }
+});
+
+function showFinal() {
+  document.getElementById('questionCard').style.display = 'none';
+  const fc = document.getElementById('finalCard');
+  fc.style.display = 'block';
+  const pct = (score / questions.length) * 100;
+  document.getElementById('finalScore').textContent = `${score}/${questions.length}`;
+  if (pct >= 80) {
+    document.getElementById('finalEmoji').textContent = '🏆';
+    document.getElementById('finalTitle').textContent = 'Excelente!';
+    document.getElementById('finalText').textContent = 'Você domina os conceitos de matemática!';
+  } else if (pct >= 60) {
+    document.getElementById('finalEmoji').textContent = '👍';
+    document.getElementById('finalTitle').textContent = 'Bom trabalho!';
+    document.getElementById('finalText').textContent = 'Continue praticando para melhorar ainda mais.';
+  } else {
+    document.getElementById('finalEmoji').textContent = '📚';
+    document.getElementById('finalTitle').textContent = 'Continue estudando!';
+    document.getElementById('finalText').textContent = 'Revise os tópicos e tente novamente.';
+  }
+}
+
+render();
+</script>
+{% endblock %}

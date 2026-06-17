@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>{% block title %}Aprenda+{% endblock %}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    :root {
+      --math-color: #4f46e5;
+      --pt-color: #059669;
+      --en-color: #dc2626;
+    }
+    body { background: #f8fafc; font-family: 'Segoe UI', sans-serif; }
+    .navbar-brand { font-weight: 700; font-size: 1.3rem; }
+    .card { border: none; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card-hover { transition: transform .2s, box-shadow .2s; cursor: pointer; }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,.12); }
+    .step-badge {
+      display: inline-block; background: #e0e7ff; color: #3730a3;
+      border-radius: 8px; padding: 6px 12px; margin: 4px 0; font-family: monospace; font-size: .9rem;
+    }
+    .result-box {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white; border-radius: 16px; padding: 20px; text-align: center;
+    }
+    .level-badge { font-size: .75rem; font-weight: 600; padding: 4px 10px; border-radius: 20px; }
+    .quiz-option { cursor: pointer; transition: background .15s; border-radius: 10px; }
+    .quiz-option:hover { background: #f1f5f9; }
+    .quiz-option.correct { background: #dcfce7; border-color: #16a34a !important; }
+    .quiz-option.wrong { background: #fee2e2; border-color: #dc2626 !important; }
+    .bottom-nav {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: white; border-top: 1px solid #e2e8f0;
+      display: flex; z-index: 1000; padding: 8px 0 env(safe-area-inset-bottom);
+    }
+    .bottom-nav a {
+      flex: 1; text-align: center; text-decoration: none;
+      color: #94a3b8; font-size: .65rem; padding: 4px 0;
+    }
+    .bottom-nav a.active, .bottom-nav a:hover { color: var(--math-color); }
+    .bottom-nav i { display: block; font-size: 1.3rem; margin-bottom: 2px; }
+    main { padding-bottom: 80px; }
+    .section-header {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white; border-radius: 16px; padding: 20px; margin-bottom: 20px;
+    }
+    .form-control, .form-select { border-radius: 10px; }
+    .btn { border-radius: 10px; }
+    .btn-primary { background: var(--math-color); border-color: var(--math-color); }
+    .accordion-button:not(.collapsed) { background: #e0e7ff; color: #3730a3; }
+  </style>
+  {% block head %}{% endblock %}
+</head>
+<body>
+<nav class="navbar navbar-light bg-white shadow-sm sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/"><i class="bi bi-mortarboard-fill text-primary me-2"></i>Aprenda+</a>
+    <span class="text-muted small">{% block page_title %}{% endblock %}</span>
+  </div>
+</nav>
+
+<main class="container-fluid px-3 pt-3">
+  {% block content %}{% endblock %}
+</main>
+
+<nav class="bottom-nav">
+  <a href="/" class="{% if request.path == '/' %}active{% endif %}">
+    <i class="bi bi-house-fill"></i>Início
+  </a>
+  <a href="/math" class="{% if '/math' in request.path %}active{% endif %}">
+    <i class="bi bi-calculator-fill"></i>Matemática
+  </a>
+  <a href="/portugues" class="{% if '/portugues' in request.path %}active{% endif %}">
+    <i class="bi bi-book-fill"></i>Português
+  </a>
+  <a href="/ingles" class="{% if '/ingles' in request.path %}active{% endif %}">
+    <i class="bi bi-translate"></i>Inglês
+  </a>
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Fatorial{% endblock %}
+{% block page_title %}Fatorial{% endblock %}
+
+{% block content %}
+<div class="mb-3">
+  <a href="/math" class="text-decoration-none text-muted"><i class="bi bi-arrow-left"></i> Matemática</a>
+</div>
+
+<div class="card p-3 mb-3">
+  <h5 class="fw-bold mb-1">🔢 Fatorial</h5>
+  <p class="text-muted small mb-3">n! = n × (n-1) × (n-2) × ... × 1</p>
+
+  <form method="POST">
+    <div class="mb-3">
+      <label class="form-label fw-semibold">Número inteiro (0 a 20)</label>
+      <input type="number" name="n" class="form-control" placeholder="Ex: 5" min="0" max="20" required
+             value="{{ request.form.get('n', '') }}">
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Calcular</button>
+  </form>
+</div>
+
+{% if error %}
+<div class="alert alert-danger rounded-3">{{ error }}</div>
+{% endif %}
+
+{% if result %}
+<div class="result-box mb-3">
+  <div class="small opacity-75 mb-1">Resultado</div>
+  <div class="fw-bold" style="font-size:2rem">{{ result.result }}</div>
+</div>
+<div class="card p-3">
+  <h6 class="fw-bold mb-2">Passo a Passo</h6>
+  {% for step in result.steps %}
+  <div class="step-badge d-block mb-1">{{ step }}</div>
+  {% endfor %}
+</div>
+{% endif %}
+
+<div class="card p-3 mt-3">
+  <h6 class="fw-bold mb-2">Tabela de Fatoriais</h6>
+  <div class="table-responsive">
+    <table class="table table-sm table-striped mb-0">
+      <thead><tr><th>n</th><th>n!</th></tr></thead>
+      <tbody>
+        {% for i, v in [(0,1),(1,1),(2,2),(3,6),(4,24),(5,120),(6,720),(7,5040),(8,40320),(9,362880),(10,3628800)] %}
+        <tr><td>{{ i }}</td><td>{{ v }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

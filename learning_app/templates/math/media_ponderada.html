@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}Média Ponderada{% endblock %}
+{% block page_title %}Média Ponderada{% endblock %}
+
+{% block content %}
+<div class="mb-3">
+  <a href="/math" class="text-decoration-none text-muted"><i class="bi bi-arrow-left"></i> Matemática</a>
+</div>
+
+<div class="card p-3 mb-3">
+  <h5 class="fw-bold mb-1">⚖️ Média Ponderada</h5>
+  <p class="text-muted small mb-3">Fórmula: MP = (Σ nota × peso) ÷ Σ pesos</p>
+
+  <form method="POST">
+    <div class="mb-3">
+      <label class="form-label fw-semibold">Notas (separadas por vírgula)</label>
+      <input type="text" name="valores" class="form-control" placeholder="Ex: 7.5, 8.0, 6.5" required
+             value="{{ request.form.get('valores', '') }}">
+      <div class="form-text">Exemplo: 7.5, 8.0, 6.5</div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label fw-semibold">Pesos (mesma ordem das notas)</label>
+      <input type="text" name="pesos" class="form-control" placeholder="Ex: 2, 3, 1" required
+             value="{{ request.form.get('pesos', '') }}">
+      <div class="form-text">Exemplo: 2, 3, 1</div>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Calcular</button>
+  </form>
+</div>
+
+{% if error %}
+<div class="alert alert-danger rounded-3">{{ error }}</div>
+{% endif %}
+
+{% if result %}
+<div class="result-box mb-3">
+  <div class="small opacity-75 mb-1">Média Ponderada</div>
+  <div class="fw-bold" style="font-size:2.5rem">{{ result.result }}</div>
+  {% if result.result >= 7 %}
+  <span class="badge bg-success mt-1">✓ Aprovado (≥ 7.0)</span>
+  {% elif result.result >= 5 %}
+  <span class="badge bg-warning text-dark mt-1">⚠ Recuperação</span>
+  {% else %}
+  <span class="badge bg-danger mt-1">✗ Reprovado</span>
+  {% endif %}
+</div>
+
+<div class="card p-3">
+  <h6 class="fw-bold mb-2"><i class="bi bi-list-ol me-1"></i>Passo a Passo</h6>
+  {% for step in result.steps %}
+  <div class="step-badge d-block mb-1">{{ step }}</div>
+  {% endfor %}
+</div>
+{% endif %}
+
+<div class="card p-3 mt-3">
+  <h6 class="fw-bold mb-2"><i class="bi bi-info-circle me-1"></i>Como funciona?</h6>
+  <p class="small text-muted mb-0">
+    A média ponderada leva em conta a <strong>importância (peso)</strong> de cada nota.
+    Uma nota com peso 3 vale 3x mais do que uma nota com peso 1.
+    É muito usada para calcular notas finais de disciplinas com provas de pesos diferentes.
+  </p>
+</div>
+{% endblock %}

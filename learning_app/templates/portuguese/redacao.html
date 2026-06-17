@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}Guia de Redação{% endblock %}
+{% block page_title %}Redação{% endblock %}
+
+{% block content %}
+<div class="mb-3">
+  <a href="/portugues" class="text-decoration-none text-muted"><i class="bi bi-arrow-left"></i> Português</a>
+</div>
+
+<h5 class="fw-bold mb-3">✍️ Guia de Redação</h5>
+
+<div class="accordion" id="redacaoAccordion">
+  {% for tipo in redacao.tipos %}
+  <div class="accordion-item border-0 mb-2 rounded-3 overflow-hidden shadow-sm">
+    <h2 class="accordion-header">
+      <button class="accordion-button {% if not loop.first %}collapsed{% endif %} fw-bold" type="button"
+              data-bs-toggle="collapse" data-bs-target="#tipo{{ loop.index }}">
+        {{ tipo.nome }}
+      </button>
+    </h2>
+    <div id="tipo{{ loop.index }}" class="accordion-collapse collapse {% if loop.first %}show{% endif %}"
+         data-bs-parent="#redacaoAccordion">
+      <div class="accordion-body">
+        <p class="text-muted small mb-3">{{ tipo.descricao }}</p>
+
+        {% for parte in tipo.estrutura %}
+        <div class="card p-3 mb-2" style="background:#f8fafc">
+          <div class="fw-bold mb-2" style="color:#4f46e5">{{ parte.parte }}</div>
+          <ul class="small mb-0">
+            {% for dica in parte.dicas %}
+            <li class="mb-1">{{ dica }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endfor %}
+
+        {% if tipo.conectivos %}
+        <div class="card p-3 mt-3">
+          <h6 class="fw-bold mb-2">📌 Conectivos Essenciais</h6>
+          {% for categoria, lista in tipo.conectivos.items() %}
+          <div class="mb-2">
+            <span class="badge bg-primary me-1">{{ categoria | capitalize }}</span>
+            <span class="small text-muted">{{ lista | join(', ') }}</span>
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<div class="card p-3 mt-3" style="background: linear-gradient(135deg,#059669,#10b981); color:white">
+  <h6 class="fw-bold mb-2">💡 Dica de Ouro — ENEM</h6>
+  <p class="small mb-0">
+    A proposta de intervenção deve ter: <strong>Agente</strong> (quem vai fazer) +
+    <strong>Ação</strong> (o quê) + <strong>Meio</strong> (como) +
+    <strong>Finalidade</strong> (para quê). Isso garante os 5 pontos da competência V!
+  </p>
+</div>
+{% endblock %}

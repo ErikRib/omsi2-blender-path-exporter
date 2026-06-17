@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Inglês{% endblock %}
+{% block page_title %}Inglês{% endblock %}
+
+{% block content %}
+<div class="section-header" style="background: linear-gradient(135deg, #dc2626, #ef4444)">
+  <h2 class="fw-bold mb-1">🇺🇸 Inglês</h2>
+  <p class="mb-0 opacity-75">Do zero ao avançado</p>
+</div>
+
+<h6 class="fw-semibold mb-3 text-muted">Selecione seu nível</h6>
+
+{% set level_colors = {'A1':'#16a34a','A2':'#65a30d','B1':'#ca8a04','B2':'#ea580c','C1':'#dc2626'} %}
+{% set level_emojis = {'A1':'🌱','A2':'🌿','B1':'🌳','B2':'⭐','C1':'🏆'} %}
+
+<div class="row g-3">
+  {% for level in levels %}
+  <div class="col-12">
+    <a href="/ingles/{{ level.id }}" class="text-decoration-none">
+      <div class="card card-hover p-3">
+        <div class="d-flex align-items-center">
+          <span class="fs-2 me-3">{{ level_emojis.get(level.id, '📚') }}</span>
+          <div class="flex-grow-1">
+            <div class="d-flex align-items-center gap-2">
+              <span class="badge" style="background:{{ level_colors.get(level.id,'#6b7280') }}; font-size:.8rem">{{ level.id }}</span>
+              <span class="fw-bold">{{ level.name_pt }}</span>
+            </div>
+            <small class="text-muted">{{ level.description }}</small>
+            <div class="mt-1">
+              <small class="text-muted">{{ level.topics|length }} tópico(s)</small>
+            </div>
+          </div>
+          <i class="bi bi-chevron-right text-muted"></i>
+        </div>
+      </div>
+    </a>
+  </div>
+  {% endfor %}
+</div>
+
+<div class="card p-3 mt-3">
+  <h6 class="fw-bold mb-2">📊 Escala de Proficiência</h6>
+  <div class="small text-muted">
+    <div class="d-flex justify-content-between mb-1"><span>A1 — Iniciante</span><span>A2 — Elementar</span></div>
+    <div class="progress mb-2" style="height:8px">
+      <div class="progress-bar bg-success" style="width:20%"></div>
+      <div class="progress-bar bg-success opacity-75" style="width:20%"></div>
+      <div class="progress-bar bg-warning" style="width:20%"></div>
+      <div class="progress-bar bg-orange" style="width:20%; background:#ea580c"></div>
+      <div class="progress-bar bg-danger" style="width:20%"></div>
+    </div>
+    <div class="d-flex justify-content-between"><span>B1 — Intermediário</span><span>B2 — Int. Superior</span><span>C1 — Avançado</span></div>
+  </div>
+</div>
+{% endblock %}

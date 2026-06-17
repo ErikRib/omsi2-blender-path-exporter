@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block title %}Cálculo de Área{% endblock %}
+{% block page_title %}Área{% endblock %}
+
+{% block content %}
+<div class="mb-3">
+  <a href="/math" class="text-decoration-none text-muted"><i class="bi bi-arrow-left"></i> Matemática</a>
+</div>
+
+<div class="card p-3 mb-3">
+  <h5 class="fw-bold mb-3">🔷 Cálculo de Área</h5>
+
+  <form method="POST" id="areaForm">
+    <div class="mb-3">
+      <label class="form-label fw-semibold">Figura geométrica</label>
+      <select name="shape" class="form-select" id="shapeSelect" required>
+        <option value="" disabled {% if not shape %}selected{% endif %}>Selecione...</option>
+        {% for key, val in formulas.items() %}
+        <option value="{{ key }}" {% if shape == key %}selected{% endif %}>
+          {{ key | capitalize }} — {{ val.formula }}
+        </option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div id="paramsContainer">
+      {% if shape %}
+      {% for param in formulas[shape].params %}
+      <div class="mb-3">
+        <label class="form-label fw-semibold">{{ param | replace('_', ' ') | capitalize }}</label>
+        <input type="number" step="any" name="{{ param }}" class="form-control"
+               placeholder="Valor" required value="{{ request.form.get(param, '') }}">
+      </div>
+      {% endfor %}
+      {% endif %}
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100" id="calcBtn" {% if not shape %}disabled{% endif %}>Calcular Área</button>
+  </form>
+</div>
+
+{% if error %}
+<div class="alert alert-danger rounded-3">{{ error }}</div>
+{% endif %}
+
+{% if result %}
+<div class="result-box mb-3">
+  <div class="small opacity-75 mb-1">Área</div>
+  <div class="fw-bold" style="font-size:2rem">{{ result.result }} unidades²</div>
+</div>
+<div class="card p-3">
+  <h6 class="fw-bold mb-2">Passo a Passo</h6>
+  {% for step in result.steps %}
+  <div class="step-badge d-block mb-1">{{ step }}</div>
+  {% endfor %}
+</div>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+const formulas = {{ formulas | tojson }};
+const shapeSelect = document.getElementById('shapeSelect');
+const paramsContainer = document.getElementById('paramsContainer');
+const calcBtn = document.getElementById('calcBtn');
+
+shapeSelect.addEventListener('change', function() {
+  const shape = this.value;
+  paramsContainer.innerHTML = '';
+  if (shape && formulas[shape]) {
+    formulas[shape].params.forEach(param => {
+      paramsContainer.innerHTML += `
+        <div class="mb-3">
+          <label class="form-label fw-semibold">${param.replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase())}</label>
+          <input type="number" step="any" name="${param}" class="form-control" placeholder="Valor" required>
+        </div>`;
+    });
+    calcBtn.disabled = false;
+  } else {
+    calcBtn.disabled = true;
+  }
+});
+</script>
+{% endblock %}

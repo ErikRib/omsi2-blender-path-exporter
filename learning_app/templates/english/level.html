@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Inglês {{ level.id }} — {{ level.name_pt }}{% endblock %}
+{% block page_title %}{{ level.id }} - {{ level.name }}{% endblock %}
+
+{% block content %}
+<div class="mb-3">
+  <a href="/ingles" class="text-decoration-none text-muted"><i class="bi bi-arrow-left"></i> Níveis</a>
+</div>
+
+<div class="card p-3 mb-3" style="background: linear-gradient(135deg,#dc2626,#ef4444); color:white">
+  <h5 class="fw-bold mb-0">{{ level.id }} — {{ level.name_pt }}</h5>
+  <small class="opacity-75">{{ level.description }}</small>
+</div>
+
+<h6 class="fw-semibold mb-3">Tópicos disponíveis</h6>
+<div class="row g-3">
+  {% for topic in level.topics %}
+  <div class="col-12">
+    <a href="/ingles/{{ level.id }}/{{ topic.id }}" class="text-decoration-none">
+      <div class="card card-hover p-3">
+        <div class="d-flex align-items-center">
+          <div class="flex-grow-1">
+            <div class="fw-bold">{{ topic.title }}</div>
+            <small class="text-muted">{{ topic.title_pt }}</small>
+            {% if topic.quiz %}
+            <div class="mt-1"><span class="badge bg-warning text-dark">{{ topic.quiz|length }} questão(ões)</span></div>
+            {% endif %}
+          </div>
+          <i class="bi bi-chevron-right text-muted"></i>
+        </div>
+      </div>
+    </a>
+  </div>
+  {% endfor %}
+
+  <div class="col-12">
+    <a href="/ingles/vocabulario/{{ level.id }}" class="text-decoration-none">
+      <div class="card card-hover p-3" style="background:#fef3c7">
+        <div class="d-flex align-items-center">
+          <span class="fs-2 me-3">📚</span>
+          <div>
+            <div class="fw-bold">Vocabulário {{ level.id }}</div>
+            <small class="text-muted">Palavras essenciais do nível</small>
+          </div>
+          <i class="bi bi-chevron-right ms-auto text-muted"></i>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Aprenda+ | Início{% endblock %}
+
+{% block content %}
+<div class="section-header text-center mb-4">
+  <h1 class="fw-bold mb-1" style="font-size:1.8rem">Aprenda+</h1>
+  <p class="mb-0 opacity-75">Matemática, Português e Inglês na palma da mão</p>
+</div>
+
+<div class="row g-3">
+  <div class="col-6">
+    <a href="/math" class="text-decoration-none">
+      <div class="card card-hover p-3 text-center h-100">
+        <div class="fs-1 mb-2">📐</div>
+        <div class="fw-bold" style="color:#4f46e5">Matemática</div>
+        <small class="text-muted">Equações, geometria e mais</small>
+      </div>
+    </a>
+  </div>
+  <div class="col-6">
+    <a href="/portugues" class="text-decoration-none">
+      <div class="card card-hover p-3 text-center h-100">
+        <div class="fs-1 mb-2">📝</div>
+        <div class="fw-bold" style="color:#059669">Português</div>
+        <small class="text-muted">Interpretação e redação</small>
+      </div>
+    </a>
+  </div>
+  <div class="col-12">
+    <a href="/ingles" class="text-decoration-none">
+      <div class="card card-hover p-3 text-center">
+        <div class="fs-1 mb-2">🇺🇸</div>
+        <div class="fw-bold" style="color:#dc2626">Inglês</div>
+        <small class="text-muted">Do zero ao avançado — A1 até C1</small>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="card mt-4 p-3">
+  <h6 class="fw-bold mb-3"><i class="bi bi-lightning-charge-fill text-warning me-2"></i>Acesso Rápido</h6>
+  <div class="d-flex flex-wrap gap-2">
+    <a href="/math/equacao-2-grau" class="btn btn-sm btn-outline-primary">Bhaskara</a>
+    <a href="/math/media-ponderada" class="btn btn-sm btn-outline-primary">Média Ponderada</a>
+    <a href="/math/area" class="btn btn-sm btn-outline-primary">Área</a>
+    <a href="/portugues/interpretacao" class="btn btn-sm btn-outline-success">Interpretação</a>
+    <a href="/portugues/redacao" class="btn btn-sm btn-outline-success">Redação</a>
+    <a href="/ingles/A1" class="btn btn-sm btn-outline-danger">Inglês Básico</a>
+    <a href="/ingles/B1" class="btn btn-sm btn-outline-danger">Inglês Médio</a>
+  </div>
+</div>
+{% endblock %}

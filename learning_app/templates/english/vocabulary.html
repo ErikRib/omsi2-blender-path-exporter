@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% block title %}Vocabulário {{ level_id }}{% endblock %}
+{% block page_title %}Vocabulário {{ level_id }}{% endblock %}
+
+{% block content %}
+<div class="mb-3">
+  <a href="/ingles/{{ level_id }}" class="text-decoration-none text-muted"><i class="bi bi-arrow-left"></i> {{ level_id }}</a>
+</div>
+
+<h5 class="fw-bold mb-1">📚 Vocabulário {{ level_id }}</h5>
+{% if level %}
+<p class="text-muted small mb-3">{{ level.name_pt }} — {{ level.description }}</p>
+{% endif %}
+
+{% if not vocab %}
+<div class="alert alert-info">Vocabulário para este nível ainda não disponível. Em breve!</div>
+{% else %}
+<div id="flashcardMode" class="mb-3">
+  <div class="d-flex justify-content-between align-items-center mb-2">
+    <h6 class="fw-bold mb-0">Modo Flashcard</h6>
+    <button class="btn btn-sm btn-outline-danger" onclick="toggleMode()">Lista</button>
+  </div>
+  <div class="card p-4 text-center" id="flashcard" style="min-height:160px; cursor:pointer" onclick="flipCard()">
+    <div id="fcFront">
+      <div class="small text-muted mb-2">Inglês</div>
+      <div class="fw-bold" style="font-size:1.5rem" id="fcWord">{{ vocab[0].word }}</div>
+    </div>
+    <div id="fcBack" style="display:none">
+      <div class="small text-muted mb-2">Português</div>
+      <div class="fw-bold" style="font-size:1.5rem; color:#dc2626" id="fcTrans">{{ vocab[0].translation }}</div>
+      <div class="small text-muted mt-2 fst-italic" id="fcExample">{{ vocab[0].example }}</div>
+    </div>
+  </div>
+  <div class="d-flex gap-2 mt-2">
+    <button class="btn btn-outline-secondary flex-fill" onclick="prevCard()">← Anterior</button>
+    <span class="btn disabled" id="cardCounter">1/{{ vocab|length }}</span>
+    <button class="btn btn-outline-primary flex-fill" onclick="nextCard()">Próxima →</button>
+  </div>
+</div>
+
+<div id="listMode" style="display:none">
+  <button class="btn btn-sm btn-outline-primary mb-3" onclick="toggleMode()">Flashcard</button>
+  <div class="card">
+    <div class="table-responsive">
+      <table class="table table-hover mb-0">
+        <thead class="table-dark"><tr><th>Inglês</th><th>Português</th><th>Exemplo</th></tr></thead>
+        <tbody>
+          {% for item in vocab %}
+          <tr>
+            <td class="fw-bold">{{ item.word }}</td>
+            <td class="text-success">{{ item.translation }}</td>
+            <td class="small text-muted fst-italic">{{ item.example }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+const vocab = {{ vocab | tojson }};
+let current = 0, flipped = false;
+
+function showCard(i) {
+  flipped = false;
+  document.getElementById('fcFront').style.display = 'block';
+  document.getElementById('fcBack').style.display = 'none';
+  document.getElementById('fcWord').textContent = vocab[i].word;
+  document.getElementById('fcTrans').textContent = vocab[i].translation;
+  document.getElementById('fcExample').textContent = vocab[i].example;
+  document.getElementById('cardCounter').textContent = `${i+1}/${vocab.length}`;
+}
+
+function flipCard() {
+  flipped = !flipped;
+  document.getElementById('fcFront').style.display = flipped ? 'none' : 'block';
+  document.getElementById('fcBack').style.display = flipped ? 'block' : 'none';
+}
+
+function nextCard() {
+  current = (current + 1) % vocab.length;
+  showCard(current);
+}
+
+function prevCard() {
+  current = (current - 1 + vocab.length) % vocab.length;
+  showCard(current);
+}
+
+function toggleMode() {
+  const fc = document.getElementById('flashcardMode');
+  const lm = document.getElementById('listMode');
+  if (fc.style.display === 'none') {
+    fc.style.display = 'block';
+    lm.style.display = 'none';
+  } else {
+    fc.style.display = 'none';
+    lm.style.display = 'block';
+  }
+}
+</script>
+{% endblock %}
