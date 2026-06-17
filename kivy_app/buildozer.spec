@@ -9,7 +9,7 @@ source.include_patterns = data/*.json
 
 version = 1.0.0
 
-requirements = python3==3.11,kivy==2.2.1,kivymd==1.1.1,pillow
+requirements = hostpython3==3.11,python3==3.11,kivy==2.2.1,kivymd==1.1.1,pillow
 
 orientation = portrait
 fullscreen = 0
