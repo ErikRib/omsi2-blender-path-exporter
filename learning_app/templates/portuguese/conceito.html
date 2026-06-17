@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block title %}{{ conceito.nome }} — Gramática{% endblock %}
+{% block page_title %}{{ conceito.nome }}{% endblock %}
+
+{% block head %}
+<style>
+  .frases-box { background: #f8fafc; border-radius: 10px; padding: 12px 16px; }
+  .frases-box li { margin-bottom: 6px; }
+  .sub-card { background:#f1f5f9; border-radius:10px; padding:10px 14px; margin-bottom:8px; }
+  strong.destaque { color: #059669; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="mb-3">
+  <a href="/portugues/conceitos" class="text-decoration-none text-muted"><i class="bi bi-arrow-left"></i> Conceitos</a>
+</div>
+
+<!-- HEADER -->
+<div class="card p-3 mb-3" style="background:linear-gradient(135deg,#059669,#10b981);color:white">
+  <div class="d-flex align-items-center gap-3">
+    <span style="font-size:2.5rem">{{ conceito.emoji }}</span>
+    <div>
+      <h5 class="fw-bold mb-1">{{ conceito.nome }}</h5>
+      <p class="mb-0 small opacity-75">{{ conceito.definicao }}</p>
+    </div>
+  </div>
+</div>
+
+<!-- DICA RÁPIDA -->
+<div class="alert alert-success d-flex gap-2 align-items-start py-2 mb-3">
+  <i class="bi bi-lightbulb-fill text-warning mt-1"></i>
+  <div class="small"><strong>Dica:</strong> {{ conceito.dica }}</div>
+</div>
+
+<!-- EXEMPLOS -->
+<div class="card p-3 mb-3">
+  <h6 class="fw-bold mb-2">Exemplos rápidos</h6>
+  <div class="d-flex flex-wrap gap-2">
+    {% for ex in conceito.exemplos %}
+    <span class="badge" style="background:#e0f2fe;color:#0369a1;font-size:.85rem;padding:6px 12px">{{ ex }}</span>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- FRASES -->
+{% if conceito.frases %}
+<div class="card p-3 mb-3">
+  <h6 class="fw-bold mb-2">Frases de exemplo</h6>
+  <ul class="mb-0 frases-box">
+    {% for frase in conceito.frases %}
+    <li class="small">{{ frase | replace('**', '<strong class="destaque">') | replace('**', '</strong>') | safe }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+<!-- SUBCATEGORIAS -->
+{% if conceito.subcategorias %}
+<div class="card p-3 mb-3">
+  <h6 class="fw-bold mb-2">Tipos / Subcategorias</h6>
+  {% for sub in conceito.subcategorias %}
+  <div class="sub-card">
+    <div class="fw-semibold small" style="color:#059669">{{ sub.nome }}</div>
+    <div class="small text-muted">{{ sub.ex }}</div>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+<!-- NAVIGAÇÃO -->
+<div class="d-flex gap-2 mb-3">
+  {% if prev_c %}
+  <a href="/portugues/conceitos/{{ prev_c.id }}" class="btn btn-outline-secondary flex-fill btn-sm">
+    {{ prev_c.emoji }} {{ prev_c.nome }}
+  </a>
+  {% endif %}
+  {% if next_c %}
+  <a href="/portugues/conceitos/{{ next_c.id }}" class="btn btn-success flex-fill btn-sm">
+    {{ next_c.nome }} {{ next_c.emoji }}
+  </a>
+  {% endif %}
+</div>
+{% endblock %}

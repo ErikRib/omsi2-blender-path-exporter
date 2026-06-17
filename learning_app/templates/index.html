@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}Aprenda+ | Início{% endblock %}
+
+{% block content %}
+<div class="section-header text-center mb-4">
+  <h1 class="fw-bold mb-1" style="font-size:1.8rem">Aprenda+</h1>
+  <p class="mb-0 opacity-75">Matemática, Português e Inglês na palma da mão</p>
+</div>
+
+<div class="row g-3">
+  <div class="col-12">
+    <a href="/python" class="text-decoration-none">
+      <div class="card card-hover p-3 text-center" style="background:linear-gradient(135deg,#1e293b,#334155);color:white">
+        <div class="fs-1 mb-1">🐍</div>
+        <div class="fw-bold fs-5">Python</div>
+        <small class="opacity-75">Do zero ao avançado — com código e quizzes</small>
+      </div>
+    </a>
+  </div>
+  <div class="col-6">
+    <a href="/math" class="text-decoration-none">
+      <div class="card card-hover p-3 text-center h-100">
+        <div class="fs-1 mb-2">📐</div>
+        <div class="fw-bold" style="color:#4f46e5">Matemática</div>
+        <small class="text-muted">Equações, geometria</small>
+      </div>
+    </a>
+  </div>
+  <div class="col-6">
+    <a href="/ingles" class="text-decoration-none">
+      <div class="card card-hover p-3 text-center h-100">
+        <div class="fs-1 mb-2">🇺🇸</div>
+        <div class="fw-bold" style="color:#dc2626">Inglês</div>
+        <small class="text-muted">A1 até C1</small>
+      </div>
+    </a>
+  </div>
+  <div class="col-12">
+    <a href="/portugues" class="text-decoration-none">
+      <div class="card card-hover p-3 text-center">
+        <div class="fs-1 mb-1">📝</div>
+        <div class="fw-bold" style="color:#059669">Português</div>
+        <small class="text-muted">Gramática rápida, interpretação e redação</small>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="card mt-4 p-3">
+  <h6 class="fw-bold mb-3"><i class="bi bi-lightning-charge-fill text-warning me-2"></i>Acesso Rápido</h6>
+  <div class="d-flex flex-wrap gap-2">
+    <a href="/python/basico" class="btn btn-sm btn-outline-dark">Python Básico</a>
+    <a href="/python/intermediario" class="btn btn-sm btn-outline-dark">Python Médio</a>
+    <a href="/math/equacao-2-grau" class="btn btn-sm btn-outline-primary">Bhaskara</a>
+    <a href="/math/area" class="btn btn-sm btn-outline-primary">Área</a>
+    <a href="/portugues/gramatica" class="btn btn-sm btn-outline-success">Gramática</a>
+    <a href="/ingles/A1" class="btn btn-sm btn-outline-danger">Inglês A1</a>
+    <a href="/ingles/B1" class="btn btn-sm btn-outline-danger">Inglês B1</a>
+  </div>
+</div>
+{% endblock %}

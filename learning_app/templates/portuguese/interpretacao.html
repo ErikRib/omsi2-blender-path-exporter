@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Interpretação de Texto{% endblock %}
+{% block page_title %}Interpretação{% endblock %}
+
+{% block content %}
+<div class="mb-3">
+  <a href="/portugues" class="text-decoration-none text-muted"><i class="bi bi-arrow-left"></i> Português</a>
+</div>
+
+<h5 class="fw-bold mb-3">📖 Interpretação de Texto</h5>
+
+<div class="row g-3">
+  {% for texto in textos %}
+  <div class="col-12">
+    <a href="/portugues/interpretacao/{{ texto.id }}" class="text-decoration-none">
+      <div class="card card-hover p-3">
+        <div class="d-flex justify-content-between align-items-start mb-1">
+          <div class="fw-bold">{{ texto.titulo }}</div>
+          <span class="badge
+            {% if texto.nivel == 'Fácil' %}bg-success
+            {% elif texto.nivel == 'Médio' %}bg-warning text-dark
+            {% else %}bg-danger{% endif %}
+            level-badge">{{ texto.nivel }}</span>
+        </div>
+        <small class="text-muted">{{ texto.perguntas|length }} questão(ões)</small>
+        <div class="mt-2 text-muted small" style="overflow:hidden;max-height:2.5em">
+          {{ texto.texto[:120] }}...
+        </div>
+      </div>
+    </a>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

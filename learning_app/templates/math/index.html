@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block title %}Matemática{% endblock %}
+{% block page_title %}Matemática{% endblock %}
+
+{% block content %}
+<div class="section-header" style="background: linear-gradient(135deg, #4f46e5, #7c3aed)">
+  <h2 class="fw-bold mb-1">📐 Matemática</h2>
+  <p class="mb-0 opacity-75">Ensino Médio ao Superior</p>
+</div>
+
+<div class="row g-3">
+  <div class="col-6">
+    <a href="/math/media-ponderada" class="text-decoration-none">
+      <div class="card card-hover p-3 text-center h-100">
+        <div class="fs-2 mb-1">⚖️</div>
+        <div class="fw-semibold small">Média Ponderada</div>
+      </div>
+    </a>
+  </div>
+  <div class="col-6">
+    <a href="/math/fatorial" class="text-decoration-none">
+      <div class="card card-hover p-3 text-center h-100">
+        <div class="fs-2 mb-1">🔢</div>
+        <div class="fw-semibold small">Fatorial</div>
+      </div>
+    </a>
+  </div>
+  <div class="col-6">
+    <a href="/math/equacao-1-grau" class="text-decoration-none">
+      <div class="card card-hover p-3 text-center h-100">
+        <div class="fs-2 mb-1">📏</div>
+        <div class="fw-semibold small">Equação 1° Grau</div>
+      </div>
+    </a>
+  </div>
+  <div class="col-6">
+    <a href="/math/equacao-2-grau" class="text-decoration-none">
+      <div class="card card-hover p-3 text-center h-100">
+        <div class="fs-2 mb-1">📊</div>
+        <div class="fw-semibold small">Equação 2° Grau</div>
+        <span class="badge bg-primary" style="font-size:.65rem">Bhaskara</span>
+      </div>
+    </a>
+  </div>
+  <div class="col-4">
+    <a href="/math/area" class="text-decoration-none">
+      <div class="card card-hover p-3 text-center h-100">
+        <div class="fs-2 mb-1">🔷</div>
+        <div class="fw-semibold small">Área</div>
+      </div>
+    </a>
+  </div>
+  <div class="col-4">
+    <a href="/math/volume" class="text-decoration-none">
+      <div class="card card-hover p-3 text-center h-100">
+        <div class="fs-2 mb-1">📦</div>
+        <div class="fw-semibold small">Volume</div>
+      </div>
+    </a>
+  </div>
+  <div class="col-4">
+    <a href="/math/perimetro" class="text-decoration-none">
+      <div class="card card-hover p-3 text-center h-100">
+        <div class="fs-2 mb-1">📐</div>
+        <div class="fw-semibold small">Perímetro</div>
+      </div>
+    </a>
+  </div>
+  <div class="col-12">
+    <a href="/math/quiz" class="text-decoration-none">
+      <div class="card card-hover p-3 text-center" style="background: linear-gradient(135deg,#4f46e5,#7c3aed); color:white">
+        <div class="fs-2 mb-1">🧠</div>
+        <div class="fw-bold">Quiz de Matemática</div>
+        <small class="opacity-75">Teste seus conhecimentos</small>
+      </div>
+    </a>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Equação 1° Grau{% endblock %}
+{% block page_title %}Equação 1° Grau{% endblock %}
+
+{% block content %}
+<div class="mb-3">
+  <a href="/math" class="text-decoration-none text-muted"><i class="bi bi-arrow-left"></i> Matemática</a>
+</div>
+
+<div class="card p-3 mb-3">
+  <h5 class="fw-bold mb-1">📏 Equação do 1° Grau</h5>
+  <p class="text-muted small mb-0">Forma: <strong>ax + b = 0</strong></p>
+  <p class="text-muted small mb-3">Solução: <strong>x = -b / a</strong></p>
+
+  <form method="POST">
+    <div class="row g-2 mb-3">
+      <div class="col-6">
+        <label class="form-label fw-semibold">Coeficiente a</label>
+        <input type="number" step="any" name="a" class="form-control" placeholder="Ex: 2" required
+               value="{{ request.form.get('a', '') }}">
+        <div class="form-text">coef. de x (≠ 0)</div>
+      </div>
+      <div class="col-6">
+        <label class="form-label fw-semibold">Coeficiente b</label>
+        <input type="number" step="any" name="b" class="form-control" placeholder="Ex: -6" required
+               value="{{ request.form.get('b', '') }}">
+        <div class="form-text">termo independente</div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Resolver</button>
+  </form>
+</div>
+
+{% if error %}
+<div class="alert alert-danger rounded-3">{{ error }}</div>
+{% endif %}
+
+{% if result %}
+<div class="result-box mb-3">
+  <div class="small opacity-75 mb-1">Solução</div>
+  <div class="fw-bold" style="font-size:2rem">x = {{ result.result }}</div>
+</div>
+<div class="card p-3">
+  <h6 class="fw-bold mb-2">Passo a Passo</h6>
+  {% for step in result.steps %}
+  <div class="step-badge d-block mb-1">{{ step }}</div>
+  {% endfor %}
+</div>
+{% endif %}
+
+<div class="card p-3 mt-3">
+  <h6 class="fw-bold mb-2">Exemplos</h6>
+  <ul class="small text-muted mb-0">
+    <li>2x + 6 = 0 → a=2, b=6 → x = -3</li>
+    <li>-3x + 9 = 0 → a=-3, b=9 → x = 3</li>
+    <li>5x - 10 = 0 → a=5, b=-10 → x = 2</li>
+  </ul>
+</div>
+{% endblock %}

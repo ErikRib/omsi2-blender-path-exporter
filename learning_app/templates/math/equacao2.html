@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}Equação 2° Grau (Bhaskara){% endblock %}
+{% block page_title %}Bhaskara{% endblock %}
+
+{% block content %}
+<div class="mb-3">
+  <a href="/math" class="text-decoration-none text-muted"><i class="bi bi-arrow-left"></i> Matemática</a>
+</div>
+
+<div class="card p-3 mb-3">
+  <h5 class="fw-bold mb-1">📊 Equação do 2° Grau</h5>
+  <p class="text-muted small mb-0">Forma: <strong>ax² + bx + c = 0</strong></p>
+  <p class="text-muted small mb-3">Δ = b² - 4ac &nbsp;|&nbsp; x = (-b ± √Δ) / 2a</p>
+
+  <form method="POST">
+    <div class="row g-2 mb-3">
+      <div class="col-4">
+        <label class="form-label fw-semibold">a</label>
+        <input type="number" step="any" name="a" class="form-control" placeholder="Ex: 1" required
+               value="{{ request.form.get('a', '') }}">
+        <div class="form-text">coef. x²</div>
+      </div>
+      <div class="col-4">
+        <label class="form-label fw-semibold">b</label>
+        <input type="number" step="any" name="b" class="form-control" placeholder="Ex: -5" required
+               value="{{ request.form.get('b', '') }}">
+        <div class="form-text">coef. x</div>
+      </div>
+      <div class="col-4">
+        <label class="form-label fw-semibold">c</label>
+        <input type="number" step="any" name="c" class="form-control" placeholder="Ex: 6" required
+               value="{{ request.form.get('c', '') }}">
+        <div class="form-text">independ.</div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Resolver com Bhaskara</button>
+  </form>
+</div>
+
+{% if error %}
+<div class="alert alert-danger rounded-3">{{ error }}</div>
+{% endif %}
+
+{% if result %}
+<div class="result-box mb-3">
+  {% if result.get('roots') == 2 %}
+  <div class="small opacity-75 mb-1">Duas raízes reais</div>
+  <div class="fw-bold" style="font-size:1.6rem">x₁ = {{ result.x1 }} &nbsp;|&nbsp; x₂ = {{ result.x2 }}</div>
+  {% elif result.get('roots') == 1 %}
+  <div class="small opacity-75 mb-1">Raiz dupla (Δ = 0)</div>
+  <div class="fw-bold" style="font-size:1.8rem">x = {{ result.result }}</div>
+  {% else %}
+  <div class="fw-bold" style="font-size:1.4rem">{{ result.result }}</div>
+  {% endif %}
+  <div class="mt-2 small opacity-75">Δ = {{ result.discriminant }}</div>
+</div>
+
+<div class="card p-3">
+  <h6 class="fw-bold mb-2">Passo a Passo</h6>
+  {% for step in result.steps %}
+  <div class="step-badge d-block mb-1">{{ step }}</div>
+  {% endfor %}
+</div>
+{% endif %}
+
+<div class="card p-3 mt-3">
+  <h6 class="fw-bold mb-2">Interpretação do Δ</h6>
+  <ul class="small mb-0">
+    <li><strong>Δ &gt; 0</strong> → duas raízes reais distintas</li>
+    <li><strong>Δ = 0</strong> → uma raiz real (dupla)</li>
+    <li><strong>Δ &lt; 0</strong> → sem raízes reais (raízes complexas)</li>
+  </ul>
+</div>
+{% endblock %}

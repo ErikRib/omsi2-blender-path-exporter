@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block title %}{{ topic.title }}{% endblock %}
+{% block page_title %}{{ level.id }} - {{ topic.title }}{% endblock %}
+
+{% block content %}
+<div class="mb-3">
+  <a href="/ingles/{{ level.id }}" class="text-decoration-none text-muted"><i class="bi bi-arrow-left"></i> {{ level.id }}</a>
+</div>
+
+<h5 class="fw-bold mb-1">{{ topic.title }}</h5>
+<p class="text-muted small mb-3">{{ topic.title_pt }}</p>
+
+{% if topic.content %}
+<div class="card p-3 mb-3">
+  <h6 class="fw-bold mb-3"><i class="bi bi-journal-text me-1"></i>Conteúdo</h6>
+  {% for item in topic.content %}
+  <div class="d-flex justify-content-between border-bottom py-2">
+    <span class="fw-semibold">{{ item.english }}</span>
+    <span class="text-muted small">{{ item.portuguese }}</span>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+{% if topic.grammar %}
+<div class="card p-3 mb-3">
+  <h6 class="fw-bold mb-2" style="color:#dc2626"><i class="bi bi-gear me-1"></i>Gramática: {{ topic.grammar.topic }}</h6>
+  <p class="small text-muted">{{ topic.grammar.explanation }}</p>
+
+  {% if topic.grammar.table %}
+  <div class="table-responsive">
+    <table class="table table-sm table-bordered">
+      <thead class="table-danger"><tr><th>Pronome</th><th>Verbo</th><th>Exemplo</th></tr></thead>
+      <tbody>
+        {% for row in topic.grammar.table %}
+        <tr><td><strong>{{ row.pronoun }}</strong></td><td><code>{{ row.verb }}</code></td><td class="small">{{ row.example }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% endif %}
+
+  {% if topic.grammar.rules %}
+  <ul class="small mb-0">
+    {% for rule in topic.grammar.rules %}
+    <li class="mb-1">{{ rule }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</div>
+{% endif %}
+
+{% if topic.quiz %}
+<div class="card p-3 mb-3">
+  <h6 class="fw-bold mb-3">🧠 Quiz — Teste seu conhecimento</h6>
+  {% for pergunta in topic.quiz %}
+  {% set qi = loop.index0 %}
+  <div class="mb-4" id="eq{{ qi }}">
+    <p class="fw-semibold mb-2">{{ loop.index }}. {{ pergunta.question }}</p>
+    <div id="eopts{{ qi }}">
+      {% for opcao in pergunta.options %}
+      {% set oi = loop.index0 %}
+      <div class="quiz-option border rounded p-2 mb-2 small"
+           onclick="checkEng({{ qi }}, {{ oi }}, {{ pergunta.answer }}, '{{ pergunta.explanation | replace("'", "\\'") }}')">
+        <span class="badge bg-secondary me-1">{{ ['A','B','C','D'][oi] }}</span>{{ opcao }}
+      </div>
+      {% endfor %}
+    </div>
+    <div id="efb{{ qi }}" style="display:none" class="mt-2"></div>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+<a href="/ingles/{{ level.id }}" class="btn btn-outline-danger w-100 mb-3">← Voltar ao nível {{ level.id }}</a>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function checkEng(qi, selected, correct, explanation) {
+  const opts = document.querySelectorAll(`#eopts${qi} .quiz-option`);
+  opts.forEach((opt, i) => {
+    opt.onclick = null;
+    if (i === correct) opt.classList.add('correct');
+  });
+  if (selected !== correct) opts[selected].classList.add('wrong');
+  const fb = document.getElementById(`efb${qi}`);
+  fb.style.display = 'block';
+  fb.innerHTML = selected === correct
+    ? `<div class="alert alert-success py-2 mb-0 small"><i class="bi bi-check-circle-fill me-1"></i><strong>Correct!</strong> ${explanation}</div>`
+    : `<div class="alert alert-danger py-2 mb-0 small"><i class="bi bi-x-circle-fill me-1"></i><strong>Incorrect.</strong> ${explanation}</div>`;
+}
+</script>
+{% endblock %}

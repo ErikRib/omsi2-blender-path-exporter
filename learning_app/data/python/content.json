@@ -1,0 +1,604 @@
+{
+  "levels": [
+    {
+      "id": "basico",
+      "name": "Básico",
+      "icon": "🌱",
+      "description": "Primeiros passos com Python",
+      "topics": [
+        {
+          "id": "intro",
+          "title": "O que é Python?",
+          "explanation": "Python é uma linguagem de programação de alto nível, fácil de ler e poderosa. É usada em ciência de dados, web, automação, IA e muito mais. Seu código se parece quase com o inglês!",
+          "concepts": [
+            "Criada por Guido van Rossum em 1991",
+            "Interpretada: o código roda linha por linha",
+            "Tipagem dinâmica: não precisa declarar tipo de variável",
+            "Indentação (espaço) define blocos — sem chaves {}",
+            "Multiplataforma: Windows, Linux, Mac"
+          ],
+          "code_examples": [
+            {
+              "title": "Seu primeiro programa",
+              "code": "print('Olá, Mundo!')\nprint('Python é incrível!')",
+              "output": "Olá, Mundo!\nPython é incrível!",
+              "explanation": "print() exibe texto na tela. Texto entre aspas simples ou duplas."
+            },
+            {
+              "title": "Comentários",
+              "code": "# Isso é um comentário — Python ignora\nprint('Isso aparece')  # comentário no fim da linha\n\n'''\nComentário\nde múltiplas\nlinhas\n'''",
+              "output": "Isso aparece",
+              "explanation": "# faz comentário de uma linha. Três aspas fazem bloco de comentário."
+            }
+          ],
+          "quiz": [
+            {
+              "question": "Qual função imprime texto na tela em Python?",
+              "options": ["show()", "print()", "display()", "echo()"],
+              "answer": 1,
+              "explanation": "print() é a função padrão para exibir texto no terminal Python."
+            },
+            {
+              "question": "Como se faz um comentário de uma linha em Python?",
+              "options": ["// comentário", "/* comentário */", "# comentário", "-- comentário"],
+              "answer": 2,
+              "explanation": "Em Python, # inicia um comentário de linha. // é de JavaScript/C."
+            }
+          ]
+        },
+        {
+          "id": "variaveis",
+          "title": "Variáveis e Tipos de Dados",
+          "explanation": "Variáveis são 'caixas' que guardam valores. Em Python, você não precisa declarar o tipo — ele é definido automaticamente pelo valor atribuído.",
+          "concepts": [
+            "int — números inteiros: 1, -5, 100",
+            "float — números decimais: 3.14, -0.5",
+            "str — texto (string): 'olá', \"mundo\"",
+            "bool — verdadeiro/falso: True, False",
+            "type() — descobre o tipo de uma variável",
+            "Nomes: letras, números, _ | não começam com número"
+          ],
+          "code_examples": [
+            {
+              "title": "Criando variáveis",
+              "code": "nome = 'Ana'\nidade = 20\naltura = 1.65\nativo = True\n\nprint(nome)\nprint(type(idade))",
+              "output": "Ana\n<class 'int'>",
+              "explanation": "O sinal = atribui um valor. type() retorna o tipo da variável."
+            },
+            {
+              "title": "Operações com strings",
+              "code": "primeiro = 'João'\nsobrenome = 'Silva'\nnome_completo = primeiro + ' ' + sobrenome\nprint(nome_completo)\nprint(len(nome_completo))\nprint(nome_completo.upper())",
+              "output": "João Silva\n10\nJOÃO SILVA",
+              "explanation": "+ concatena strings. len() conta caracteres. .upper() deixa maiúsculo."
+            },
+            {
+              "title": "f-strings (formatação moderna)",
+              "code": "nome = 'Marcos'\nidade = 25\nprint(f'Meu nome é {nome} e tenho {idade} anos.')\nprint(f'2 + 2 = {2 + 2}')",
+              "output": "Meu nome é Marcos e tenho 25 anos.\n2 + 2 = 4",
+              "explanation": "f-strings (Python 3.6+): coloque f antes das aspas e use {} para variáveis/expressões."
+            }
+          ],
+          "quiz": [
+            {
+              "question": "Qual o tipo de: x = 3.14 ?",
+              "options": ["int", "str", "float", "bool"],
+              "answer": 2,
+              "explanation": "3.14 tem ponto decimal, então é float (número de ponto flutuante)."
+            },
+            {
+              "question": "O que faz: print(len('Python')) ?",
+              "options": ["Imprime 'Python'", "Imprime 6", "Imprime o tipo", "Gera erro"],
+              "answer": 1,
+              "explanation": "len() conta os caracteres. 'Python' tem 6 letras."
+            },
+            {
+              "question": "Como se cria uma f-string?",
+              "options": ["'Olá {nome}'", "f'Olá {nome}'", "format('Olá', nome)", "\"Olá\" + nome"],
+              "answer": 1,
+              "explanation": "f-strings precisam do prefixo f antes das aspas: f'texto {variavel}'"
+            }
+          ]
+        },
+        {
+          "id": "operadores",
+          "title": "Operadores",
+          "explanation": "Operadores permitem fazer cálculos, comparações e lógica com variáveis.",
+          "concepts": [
+            "Aritméticos: + - * / // % **",
+            "// → divisão inteira (sem decimal)",
+            "% → resto da divisão (módulo)",
+            "** → potenciação",
+            "Comparação: == != > < >= <=",
+            "Lógicos: and, or, not"
+          ],
+          "code_examples": [
+            {
+              "title": "Operadores aritméticos",
+              "code": "a, b = 10, 3\nprint(a + b)   # 13\nprint(a - b)   # 7\nprint(a * b)   # 30\nprint(a / b)   # 3.333...\nprint(a // b)  # 3 (div. inteira)\nprint(a % b)   # 1 (resto)\nprint(a ** b)  # 1000 (10³)",
+              "output": "13\n7\n30\n3.3333333333333335\n3\n1\n1000",
+              "explanation": "// descarta o decimal. % retorna o resto. ** é a potência."
+            },
+            {
+              "title": "Comparação e lógica",
+              "code": "x = 10\nprint(x > 5)       # True\nprint(x == 10)     # True\nprint(x != 5)      # True\nprint(x > 5 and x < 20)  # True\nprint(x > 20 or x == 10) # True\nprint(not x > 5)   # False",
+              "output": "True\nTrue\nTrue\nTrue\nTrue\nFalse",
+              "explanation": "Comparações retornam True ou False. and requer ambos verdadeiros; or requer ao menos um."
+            }
+          ],
+          "quiz": [
+            {
+              "question": "Qual o resultado de: 17 % 5 ?",
+              "options": ["3", "2", "3.4", "0"],
+              "answer": 1,
+              "explanation": "17 % 5 = resto da divisão de 17 por 5. 5×3=15, resto=2."
+            },
+            {
+              "question": "Qual o resultado de: 2 ** 8 ?",
+              "options": ["16", "64", "256", "512"],
+              "answer": 2,
+              "explanation": "** é potenciação. 2⁸ = 256."
+            }
+          ]
+        },
+        {
+          "id": "condicionais",
+          "title": "Condicionais (if/elif/else)",
+          "explanation": "Condicionais permitem que o programa tome decisões: 'SE isso acontecer, faça aquilo; SENÃO, faça outra coisa'.",
+          "concepts": [
+            "if — se a condição for True, executa o bloco",
+            "elif — 'else if' — outra condição",
+            "else — caso nenhuma condição anterior seja verdadeira",
+            "Indentação obrigatória: 4 espaços define o bloco",
+            "Pode ter múltiplos elif"
+          ],
+          "code_examples": [
+            {
+              "title": "if / elif / else básico",
+              "code": "nota = 7.5\n\nif nota >= 7:\n    print('Aprovado!')\nelif nota >= 5:\n    print('Recuperação')\nelse:\n    print('Reprovado')",
+              "output": "Aprovado!",
+              "explanation": "Python usa indentação (4 espaços) para definir o que está dentro do if."
+            },
+            {
+              "title": "Condição com input do usuário",
+              "code": "# idade = int(input('Sua idade: '))\nidade = 17  # simulando\n\nif idade >= 18:\n    print('Pode votar')\nelse:\n    print(f'Faltam {18 - idade} anos para votar')",
+              "output": "Faltam 1 anos para votar",
+              "explanation": "input() captura texto do usuário. int() converte para número inteiro."
+            }
+          ],
+          "quiz": [
+            {
+              "question": "O que acontece se nenhum if/elif for True e não houver else?",
+              "options": ["Erro", "Executa tudo", "Nada acontece", "Executa o último elif"],
+              "answer": 2,
+              "explanation": "Se nenhuma condição for True e não há else, o Python simplesmente pula o bloco."
+            },
+            {
+              "question": "Qual o operador para 'igual a' em Python?",
+              "options": ["=", "===", "==", "eq"],
+              "answer": 2,
+              "explanation": "= atribui valor. == compara. Nunca confunda os dois!"
+            }
+          ]
+        },
+        {
+          "id": "loops",
+          "title": "Loops (for e while)",
+          "explanation": "Loops repetem um bloco de código. 'for' itera sobre uma sequência; 'while' repete enquanto uma condição for verdadeira.",
+          "concepts": [
+            "for item in sequencia — percorre cada elemento",
+            "range(n) — gera números de 0 a n-1",
+            "range(inicio, fim, passo) — controle total",
+            "while condicao — repete enquanto True",
+            "break — sai do loop imediatamente",
+            "continue — pula para a próxima iteração"
+          ],
+          "code_examples": [
+            {
+              "title": "for com range",
+              "code": "# Conta de 1 a 5\nfor i in range(1, 6):\n    print(i)\n\n# Pares de 0 a 10\nfor n in range(0, 11, 2):\n    print(n, end=' ')",
+              "output": "1\n2\n3\n4\n5\n0 2 4 6 8 10",
+              "explanation": "range(1,6) gera [1,2,3,4,5]. range(0,11,2) pula de 2 em 2. end=' ' não quebra linha."
+            },
+            {
+              "title": "while com break",
+              "code": "contador = 0\nwhile True:\n    contador += 1\n    if contador == 5:\n        break\nprint(f'Parou em {contador}')",
+              "output": "Parou em 5",
+              "explanation": "while True cria loop infinito. break sai quando contador chega a 5. += é atalho para contador = contador + 1."
+            },
+            {
+              "title": "for em lista e string",
+              "code": "frutas = ['maçã', 'banana', 'uva']\nfor fruta in frutas:\n    print(fruta)\n\nfor letra in 'Python':\n    print(letra, end='-')",
+              "output": "maçã\nbanana\nuva\nP-y-t-h-o-n-",
+              "explanation": "for percorre qualquer sequência: lista, string, tuple, etc."
+            }
+          ],
+          "quiz": [
+            {
+              "question": "Quantas vezes o loop 'for i in range(3):' executa?",
+              "options": ["2", "3", "4", "1"],
+              "answer": 1,
+              "explanation": "range(3) gera [0, 1, 2] — 3 valores, portanto 3 execuções."
+            },
+            {
+              "question": "O que faz 'continue' dentro de um loop?",
+              "options": ["Sai do loop", "Pula para a próxima iteração", "Reinicia o loop do zero", "Pausa o loop"],
+              "answer": 1,
+              "explanation": "continue pula o restante do bloco atual e vai para a próxima iteração. break sai completamente."
+            }
+          ]
+        },
+        {
+          "id": "listas",
+          "title": "Listas",
+          "explanation": "Listas são coleções ordenadas e mutáveis. Podem guardar qualquer tipo de dado e são uma das estruturas mais usadas em Python.",
+          "concepts": [
+            "Criação: lista = [1, 2, 3]",
+            "Índice começa em 0: lista[0] é o primeiro",
+            "Índice negativo: lista[-1] é o último",
+            "Fatiamento: lista[1:3] pega do índice 1 ao 2",
+            "append() — adiciona ao final",
+            "remove() — remove por valor | pop() — por índice",
+            "len() — tamanho | sorted() — ordena"
+          ],
+          "code_examples": [
+            {
+              "title": "Criação e acesso",
+              "code": "numeros = [10, 20, 30, 40, 50]\nprint(numeros[0])   # 10 (primeiro)\nprint(numeros[-1])  # 50 (último)\nprint(numeros[1:3]) # [20, 30]\nprint(len(numeros)) # 5",
+              "output": "10\n50\n[20, 30]\n5",
+              "explanation": "Índice começa em 0. -1 pega o último. [1:3] pega índices 1 e 2 (o 3 fica de fora)."
+            },
+            {
+              "title": "Métodos de lista",
+              "code": "frutas = ['maçã', 'banana']\nfrutas.append('uva')     # adiciona\nfrutas.insert(0, 'abacaxi')  # insere na posição 0\nprint(frutas)\nfrutas.remove('banana')  # remove por valor\nprint(frutas)\nprint(sorted(frutas))    # ordena (retorna nova lista)",
+              "output": "['abacaxi', 'maçã', 'banana', 'uva']\n['abacaxi', 'maçã', 'uva']\n['abacaxi', 'maçã', 'uva']",
+              "explanation": "append() adiciona no fim. insert(pos, val) insere na posição. remove() busca pelo valor."
+            }
+          ],
+          "quiz": [
+            {
+              "question": "lista = [5, 10, 15]. Qual o valor de lista[-1]?",
+              "options": ["5", "10", "15", "Erro"],
+              "answer": 2,
+              "explanation": "Índice -1 sempre retorna o último elemento. lista[-1] = 15."
+            },
+            {
+              "question": "Como adicionar um item no final de uma lista?",
+              "options": ["lista.add(x)", "lista.append(x)", "lista.insert(x)", "lista.push(x)"],
+              "answer": 1,
+              "explanation": "append() adiciona no final. insert() precisa de posição. add() e push() não existem em listas."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "intermediario",
+      "name": "Intermediário",
+      "icon": "🌿",
+      "description": "Funções, dicionários e estruturas avançadas",
+      "topics": [
+        {
+          "id": "funcoes",
+          "title": "Funções",
+          "explanation": "Funções são blocos de código reutilizáveis. Você define uma vez e pode chamar quantas vezes quiser. São essenciais para organizar e reaproveitar código.",
+          "concepts": [
+            "def nome(parametros): — define a função",
+            "return — retorna um valor (opcional)",
+            "Parâmetros com valor padrão: def f(x=10)",
+            "*args — aceita quantidade variável de argumentos",
+            "**kwargs — aceita argumentos nomeados variáveis",
+            "Funções são objetos — podem ser passadas como argumento"
+          ],
+          "code_examples": [
+            {
+              "title": "Função básica",
+              "code": "def saudacao(nome, formal=False):\n    if formal:\n        return f'Bom dia, Sr(a). {nome}.'\n    return f'Oi, {nome}!'\n\nprint(saudacao('Ana'))\nprint(saudacao('Carlos', formal=True))",
+              "output": "Oi, Ana!\nBom dia, Sr(a). Carlos.",
+              "explanation": "formal=False é o valor padrão. Ao chamar, você pode sobrescrever com formal=True."
+            },
+            {
+              "title": "*args e **kwargs",
+              "code": "def soma(*numeros):\n    return sum(numeros)\n\nprint(soma(1, 2, 3))\nprint(soma(10, 20, 30, 40))\n\ndef info(**dados):\n    for chave, valor in dados.items():\n        print(f'{chave}: {valor}')\n\ninfo(nome='Ana', idade=25, cidade='SP')",
+              "output": "6\n100\nnome: Ana\nidade: 25\ncidade: SP",
+              "explanation": "*args captura múltiplos posicionais como tupla. **kwargs captura nomeados como dicionário."
+            }
+          ],
+          "quiz": [
+            {
+              "question": "O que o 'return' faz em uma função?",
+              "options": ["Imprime o valor", "Termina o programa", "Retorna um valor e encerra a função", "Define o tipo"],
+              "answer": 2,
+              "explanation": "return faz a função devolver um valor. Depois do return, nenhuma linha da função é executada."
+            },
+            {
+              "question": "def calc(a, b=2): — O que é b=2?",
+              "options": ["Variável global", "Parâmetro obrigatório", "Parâmetro com valor padrão", "Constante"],
+              "answer": 2,
+              "explanation": "b=2 é um parâmetro opcional com valor padrão 2. Se não passar b ao chamar, ele vale 2."
+            }
+          ]
+        },
+        {
+          "id": "dicionarios",
+          "title": "Dicionários",
+          "explanation": "Dicionários armazenam pares chave:valor. São como uma agenda telefônica — você busca pelo nome (chave) e obtém o número (valor).",
+          "concepts": [
+            "Criação: d = {'chave': 'valor'}",
+            "Acesso: d['chave'] ou d.get('chave')",
+            "d.get(k) retorna None se a chave não existir (sem erro)",
+            "d.keys() — chaves | d.values() — valores | d.items() — ambos",
+            "del d['chave'] — remove | 'chave' in d — verifica",
+            "Dicionários são ordenados (Python 3.7+)"
+          ],
+          "code_examples": [
+            {
+              "title": "Operações básicas",
+              "code": "aluno = {\n    'nome': 'Lucas',\n    'idade': 19,\n    'notas': [8.0, 7.5, 9.0]\n}\n\nprint(aluno['nome'])\nprint(aluno.get('email', 'não informado'))\naluno['email'] = 'lucas@mail.com'\nprint(aluno['email'])",
+              "output": "Lucas\nnão informado\nlucas@mail.com",
+              "explanation": ".get(chave, padrão) não gera erro se a chave não existir — retorna o padrão."
+            },
+            {
+              "title": "Iterando dicionários",
+              "code": "produto = {'nome': 'Notebook', 'preco': 3500, 'estoque': 12}\n\nfor chave, valor in produto.items():\n    print(f'{chave}: {valor}')\n\n# Verificar se chave existe\nif 'preco' in produto:\n    print(f'Preço: R${produto[\"preco\"]}')",
+              "output": "nome: Notebook\npreco: 3500\nestoque: 12\nPreço: R$3500",
+              "explanation": ".items() retorna pares (chave, valor). in verifica se a chave existe."
+            }
+          ],
+          "quiz": [
+            {
+              "question": "d = {'a': 1}. O que faz d.get('b', 0)?",
+              "options": ["Gera KeyError", "Retorna None", "Retorna 0", "Retorna 'b'"],
+              "answer": 2,
+              "explanation": ".get(chave, padrão) retorna o padrão (0) se a chave não existir. Evita erros."
+            },
+            {
+              "question": "Como iterar sobre chave E valor ao mesmo tempo?",
+              "options": ["for k in d", "for k, v in d.items()", "for k, v in d", "for k in d.keys()"],
+              "answer": 1,
+              "explanation": ".items() retorna tuplas (chave, valor). O for desempacota automaticamente."
+            }
+          ]
+        },
+        {
+          "id": "excecoes",
+          "title": "Tratamento de Erros (try/except)",
+          "explanation": "Erros em Python são chamados de exceções. O try/except permite capturá-las e reagir adequadamente em vez de deixar o programa travar.",
+          "concepts": [
+            "try — bloco que pode gerar erro",
+            "except TipoErro — captura erro específico",
+            "except Exception as e — captura qualquer erro",
+            "else — executa se NÃO houve erro",
+            "finally — executa SEMPRE (com ou sem erro)",
+            "raise — lança uma exceção manualmente",
+            "Tipos comuns: ValueError, TypeError, KeyError, IndexError, ZeroDivisionError"
+          ],
+          "code_examples": [
+            {
+              "title": "try/except básico",
+              "code": "try:\n    numero = int('abc')  # vai falhar\nexcept ValueError as e:\n    print(f'Erro: {e}')\n\ntry:\n    resultado = 10 / 0\nexcept ZeroDivisionError:\n    print('Não é possível dividir por zero!')\nelse:\n    print(f'Resultado: {resultado}')\nfinally:\n    print('Isso sempre executa')",
+              "output": "Erro: invalid literal for int() with base 10: 'abc'\nNão é possível dividir por zero!\nIsso sempre executa",
+              "explanation": "Cada except captura um tipo específico de erro. finally sempre roda."
+            }
+          ],
+          "quiz": [
+            {
+              "question": "Qual erro ocorre ao fazer: int('texto') ?",
+              "options": ["TypeError", "ValueError", "KeyError", "RuntimeError"],
+              "answer": 1,
+              "explanation": "int('texto') gera ValueError porque 'texto' não pode ser convertido para inteiro."
+            },
+            {
+              "question": "O bloco 'finally' executa:",
+              "options": ["Só se der erro", "Só se não der erro", "Sempre", "Nunca"],
+              "answer": 2,
+              "explanation": "finally SEMPRE executa — com ou sem exceção. Útil para fechar arquivos, conexões, etc."
+            }
+          ]
+        },
+        {
+          "id": "arquivos",
+          "title": "Leitura e Escrita de Arquivos",
+          "explanation": "Python facilita muito a leitura e escrita de arquivos de texto. O with open() garante que o arquivo seja fechado corretamente.",
+          "concepts": [
+            "open(caminho, modo) — abre arquivo",
+            "Modos: 'r' leitura | 'w' escrita (sobrescreve) | 'a' append | 'rb'/'wb' binário",
+            "with open() as f: — fecha automaticamente",
+            "f.read() — lê tudo | f.readlines() — lista de linhas",
+            "f.write(texto) — escreve",
+            "encoding='utf-8' — importante para acentos"
+          ],
+          "code_examples": [
+            {
+              "title": "Escrever e ler arquivo",
+              "code": "# Escrevendo\nwith open('notas.txt', 'w', encoding='utf-8') as f:\n    f.write('Ana: 8.5\\n')\n    f.write('Bruno: 7.0\\n')\n    f.write('Carla: 9.5\\n')\n\n# Lendo linha por linha\nwith open('notas.txt', 'r', encoding='utf-8') as f:\n    for linha in f:\n        print(linha.strip())",
+              "output": "Ana: 8.5\nBruno: 7.0\nCarla: 9.5",
+              "explanation": "'w' cria/sobrescreve. 'r' lê. \\n é quebra de linha. .strip() remove espaços/\\n das bordas."
+            }
+          ],
+          "quiz": [
+            {
+              "question": "Qual modo apaga o conteúdo anterior ao escrever?",
+              "options": ["'a'", "'r'", "'w'", "'x'"],
+              "answer": 2,
+              "explanation": "'w' (write) sobrescreve o arquivo. 'a' (append) adiciona ao final sem apagar."
+            }
+          ]
+        },
+        {
+          "id": "list_comprehension",
+          "title": "List Comprehension",
+          "explanation": "List comprehension é uma forma elegante e pythônica de criar listas em uma única linha. Substitui loops for longos com código limpo e eficiente.",
+          "concepts": [
+            "Sintaxe: [expressao for item in iteravel]",
+            "Com condição: [expr for item in iteravel if condicao]",
+            "Mais rápido que loop for equivalente",
+            "Dict comprehension: {k: v for k, v in ...}",
+            "Set comprehension: {expr for item in ...}"
+          ],
+          "code_examples": [
+            {
+              "title": "Exemplos práticos",
+              "code": "# Quadrados de 1 a 5\nquadrados = [x**2 for x in range(1, 6)]\nprint(quadrados)\n\n# Só os pares\npares = [x for x in range(20) if x % 2 == 0]\nprint(pares)\n\n# Maiúsculas de uma lista de nomes\nnomes = ['ana', 'bruno', 'carla']\nmaiusculos = [n.upper() for n in nomes]\nprint(maiusculos)",
+              "output": "[1, 4, 9, 16, 25]\n[0, 2, 4, 6, 8, 10, 12, 14, 16, 18]\n['ANA', 'BRUNO', 'CARLA']",
+              "explanation": "Lê-se: 'x ao quadrado, para cada x em range(1,6)'. A condição if filtra os itens."
+            }
+          ],
+          "quiz": [
+            {
+              "question": "O que produz: [x*2 for x in [1,2,3]] ?",
+              "options": ["[1,2,3]", "[2,4,6]", "[1,4,9]", "[3,6,9]"],
+              "answer": 1,
+              "explanation": "Para cada x em [1,2,3], calcula x*2: 1*2=2, 2*2=4, 3*2=6 → [2,4,6]."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "avancado",
+      "name": "Avançado",
+      "icon": "🏆",
+      "description": "POO, módulos, decoradores e muito mais",
+      "topics": [
+        {
+          "id": "oop",
+          "title": "Orientação a Objetos (POO)",
+          "explanation": "POO organiza o código em classes — moldes para criar objetos com atributos (dados) e métodos (ações). É a base de frameworks como Django e FastAPI.",
+          "concepts": [
+            "class — define uma classe",
+            "__init__ — construtor, chamado ao criar o objeto",
+            "self — referência ao próprio objeto",
+            "Atributos — dados do objeto",
+            "Métodos — funções do objeto",
+            "Herança — classe filha herda da mãe",
+            "Encapsulamento — _privado, __muito_privado"
+          ],
+          "code_examples": [
+            {
+              "title": "Classe básica",
+              "code": "class Carro:\n    def __init__(self, marca, modelo, ano):\n        self.marca = marca\n        self.modelo = modelo\n        self.ano = ano\n        self.velocidade = 0\n\n    def acelerar(self, km_h):\n        self.velocidade += km_h\n        return f'{self.modelo} a {self.velocidade} km/h'\n\n    def __str__(self):\n        return f'{self.marca} {self.modelo} ({self.ano})'\n\nmeu_carro = Carro('Toyota', 'Corolla', 2022)\nprint(meu_carro)\nprint(meu_carro.acelerar(60))",
+              "output": "Toyota Corolla (2022)\nCorolla a 60 km/h",
+              "explanation": "__init__ é o construtor. self.atributo define atributos. __str__ define o que print() mostra."
+            },
+            {
+              "title": "Herança",
+              "code": "class Animal:\n    def __init__(self, nome):\n        self.nome = nome\n\n    def falar(self):\n        return '...'\n\nclass Cachorro(Animal):\n    def falar(self):\n        return 'Au au!'\n\nclass Gato(Animal):\n    def falar(self):\n        return 'Miau!'\n\nanimais = [Cachorro('Rex'), Gato('Mimi')]\nfor a in animais:\n    print(f'{a.nome}: {a.falar()}')",
+              "output": "Rex: Au au!\nMimi: Miau!",
+              "explanation": "Cachorro(Animal) herda de Animal. Sobrescrever falar() é polimorfismo — cada classe tem sua versão."
+            }
+          ],
+          "quiz": [
+            {
+              "question": "O que é o '__init__' em uma classe Python?",
+              "options": ["Um método privado", "O construtor — chamado ao criar o objeto", "Um método de classe", "O destrutor"],
+              "answer": 1,
+              "explanation": "__init__ é o construtor. É chamado automaticamente quando você faz objeto = MinhaClasse()."
+            },
+            {
+              "question": "O que significa 'self' nos métodos de uma classe?",
+              "options": ["Referência à classe", "Referência ao objeto atual", "Parâmetro opcional", "Palavra reservada global"],
+              "answer": 1,
+              "explanation": "self é uma referência ao próprio objeto. Permite acessar atributos e métodos do objeto de dentro da classe."
+            }
+          ]
+        },
+        {
+          "id": "modulos",
+          "title": "Módulos e Bibliotecas",
+          "explanation": "Python tem uma biblioteca padrão enorme. Módulos são arquivos .py que você pode importar. Bibliotecas externas são instaladas com pip.",
+          "concepts": [
+            "import modulo — importa o módulo inteiro",
+            "from modulo import funcao — importa função específica",
+            "import modulo as apelido — apelido curto",
+            "pip install pacote — instala biblioteca externa",
+            "Módulos úteis: math, random, datetime, os, json, re"
+          ],
+          "code_examples": [
+            {
+              "title": "Módulos da biblioteca padrão",
+              "code": "import math\nimport random\nfrom datetime import datetime\n\nprint(math.sqrt(144))       # 12.0\nprint(math.pi)              # 3.14159...\nprint(random.randint(1, 6)) # dado de 6 faces\nprint(datetime.now().strftime('%d/%m/%Y'))",
+              "output": "12.0\n3.141592653589793\n4  (aleatório)\n17/06/2026",
+              "explanation": "math tem funções matemáticas. random gera números aleatórios. datetime trabalha com datas."
+            },
+            {
+              "title": "Criando seu próprio módulo",
+              "code": "# Arquivo: calculadora.py\ndef somar(a, b):\n    return a + b\n\ndef multiplicar(a, b):\n    return a * b\n\n# Arquivo: main.py\n# from calculadora import somar, multiplicar\n# print(somar(3, 4))        # 7\n# print(multiplicar(3, 4)) # 12",
+              "output": "7\n12",
+              "explanation": "Qualquer arquivo .py é um módulo. Importe com from nome_arquivo import funcao."
+            }
+          ],
+          "quiz": [
+            {
+              "question": "Como instalar uma biblioteca externa em Python?",
+              "options": ["import biblioteca", "install biblioteca", "pip install biblioteca", "python get biblioteca"],
+              "answer": 2,
+              "explanation": "pip é o gerenciador de pacotes do Python. 'pip install requests' instala a biblioteca requests."
+            }
+          ]
+        },
+        {
+          "id": "decoradores",
+          "title": "Decoradores e Lambda",
+          "explanation": "Decoradores modificam o comportamento de funções sem alterar seu código. Lambda cria funções anônimas de uma linha. São ferramentas do Python avançado.",
+          "concepts": [
+            "Lambda: func = lambda x: x * 2",
+            "Útil com map(), filter(), sorted()",
+            "Decorador: função que recebe e retorna outra função",
+            "@decorador — sintaxe especial para aplicar",
+            "Muito usado em frameworks: @app.route(), @property"
+          ],
+          "code_examples": [
+            {
+              "title": "Lambda e funções de ordem superior",
+              "code": "# Lambda\ndobrar = lambda x: x * 2\nprint(dobrar(5))  # 10\n\n# map() + lambda\nnumeros = [1, 2, 3, 4, 5]\ndoblados = list(map(lambda x: x**2, numeros))\nprint(doblados)\n\n# filter() + lambda\npares = list(filter(lambda x: x % 2 == 0, numeros))\nprint(pares)\n\n# sorted com key\nnomes = ['Carlos', 'Ana', 'Beatriz']\nprint(sorted(nomes, key=lambda n: len(n)))",
+              "output": "10\n[1, 4, 9, 16, 25]\n[2, 4]\n['Ana', 'Carlos', 'Beatriz']",
+              "explanation": "map() aplica função em cada item. filter() mantém itens que retornam True. sorted com key ordena por critério."
+            },
+            {
+              "title": "Decorador simples",
+              "code": "def cronometrar(func):\n    import time\n    def wrapper(*args, **kwargs):\n        inicio = time.time()\n        resultado = func(*args, **kwargs)\n        fim = time.time()\n        print(f'{func.__name__} levou {fim-inicio:.4f}s')\n        return resultado\n    return wrapper\n\n@cronometrar\ndef calcular_soma(n):\n    return sum(range(n))\n\nresultado = calcular_soma(1000000)\nprint(f'Soma: {resultado}')",
+              "output": "calcular_soma levou 0.0312s\nSoma: 499999500000",
+              "explanation": "@cronometrar é equivalente a: calcular_soma = cronometrar(calcular_soma). O decorador envolve a função."
+            }
+          ],
+          "quiz": [
+            {
+              "question": "O que faz: list(map(lambda x: x+1, [1,2,3]))?",
+              "options": ["[1,2,3]", "[2,3,4]", "[1,4,9]", "Erro"],
+              "answer": 1,
+              "explanation": "map aplica lambda x: x+1 em cada elemento: 1+1=2, 2+1=3, 3+1=4 → [2,3,4]."
+            }
+          ]
+        },
+        {
+          "id": "geradores",
+          "title": "Geradores e Iteradores",
+          "explanation": "Geradores produzem valores um por vez, economizando memória. Ao contrário de listas, não guardam tudo na memória — geram sob demanda. Essenciais para trabalhar com grandes volumes de dados.",
+          "concepts": [
+            "yield — torna uma função em gerador",
+            "next() — pede o próximo valor",
+            "Geradores são iteradores — podem ser usados em for",
+            "Generator expression: (expr for x in iter) — como list comp mas com ()",
+            "Econômico: gera um valor por vez, não tudo de uma vez"
+          ],
+          "code_examples": [
+            {
+              "title": "Gerador com yield",
+              "code": "def contador(limite):\n    n = 0\n    while n < limite:\n        yield n\n        n += 1\n\n# Usa como for normal\nfor numero in contador(5):\n    print(numero, end=' ')\n\nprint()\n\n# Generator expression — eficiente\nsoma_quadrados = sum(x**2 for x in range(1000000))\nprint(f'Soma dos quadrados: {soma_quadrados}')",
+              "output": "0 1 2 3 4\nSoma dos quadrados: 333332833333500000",
+              "explanation": "yield pausa a função e retorna o valor. Na próxima chamada, continua de onde parou. Muito mais eficiente que criar uma lista de 1 milhão de elementos."
+            }
+          ],
+          "quiz": [
+            {
+              "question": "Qual a vantagem de geradores vs listas?",
+              "options": ["São mais rápidos sempre", "Economizam memória ao gerar valores sob demanda", "São mais fáceis de usar", "Suportam mais tipos"],
+              "answer": 1,
+              "explanation": "Geradores geram um valor por vez — não carregam tudo na memória. Ideal para arquivos grandes ou sequências infinitas."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

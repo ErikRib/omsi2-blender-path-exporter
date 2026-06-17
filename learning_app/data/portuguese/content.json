@@ -1,0 +1,310 @@
+{
+  "interpretacao": [
+    {
+      "id": 1,
+      "titulo": "A Solidariedade",
+      "nivel": "Médio",
+      "texto": "Em tempos de dificuldade, a solidariedade é a força que une as pessoas. Quando um vizinho perde o emprego, outro oferece ajuda. Quando uma família passa fome, a comunidade se mobiliza. A solidariedade não é fraqueza — é a maior demonstração de humanidade que existe. Ela transforma sociedades e salva vidas.",
+      "perguntas": [
+        {
+          "pergunta": "Qual é a ideia central do texto?",
+          "opcoes": [
+            "A solidariedade é um sinal de fraqueza.",
+            "A solidariedade une as pessoas e transforma sociedades.",
+            "As pessoas devem resolver seus próprios problemas.",
+            "A comunidade não tem responsabilidade com o próximo."
+          ],
+          "resposta": 1,
+          "explicacao": "O texto defende que a solidariedade é a força que une as pessoas e transforma sociedades, sendo a maior demonstração de humanidade."
+        },
+        {
+          "pergunta": "A frase 'A solidariedade não é fraqueza' indica que:",
+          "opcoes": [
+            "Ser solidário torna as pessoas fracas.",
+            "Existe um preconceito de que solidariedade é fraqueza, mas o texto refuta isso.",
+            "Solidariedade e fraqueza são conceitos iguais.",
+            "O autor concorda que solidariedade é fraqueza."
+          ],
+          "resposta": 1,
+          "explicacao": "A negação 'não é fraqueza' mostra que o autor está refutando um possível preconceito ou ideia contrária."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "titulo": "Tecnologia e Educação",
+      "nivel": "Avançado",
+      "texto": "A tecnologia revolucionou a forma como aprendemos. Antes, o conhecimento era restrito a livros e professores. Hoje, com a internet, qualquer pessoa com acesso a um celular pode aprender o que quiser. No entanto, essa democratização do saber traz desafios: a sobrecarga de informações, as fake news e a dificuldade em distinguir fontes confiáveis. O aluno do século XXI precisa ser crítico, não apenas receptor de conteúdo.",
+      "perguntas": [
+        {
+          "pergunta": "De acordo com o texto, qual é o principal desafio da democratização do conhecimento?",
+          "opcoes": [
+            "A falta de acesso à internet.",
+            "A escassez de professores.",
+            "A sobrecarga de informações e a dificuldade de distinguir fontes confiáveis.",
+            "O alto custo dos celulares."
+          ],
+          "resposta": 2,
+          "explicacao": "O texto menciona 'sobrecarga de informações, as fake news e a dificuldade em distinguir fontes confiáveis' como os principais desafios."
+        },
+        {
+          "pergunta": "O termo 'democratização do saber' no texto significa:",
+          "opcoes": [
+            "Aprender apenas em escolas públicas.",
+            "Tornar o conhecimento acessível a todos.",
+            "Votar para escolher o que aprender.",
+            "Eliminar os professores."
+          ],
+          "resposta": 1,
+          "explicacao": "Democratização significa tornar algo acessível ao povo em geral — no contexto, o acesso ao conhecimento para qualquer pessoa."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "titulo": "Preservação Ambiental",
+      "nivel": "Fácil",
+      "texto": "A floresta Amazônica é o maior bioma tropical do mundo. Ela abriga milhões de espécies de animais e plantas, muitas ainda desconhecidas pela ciência. Além disso, regula o clima do planeta ao absorver grandes quantidades de CO₂. Preservar a Amazônia não é apenas uma questão brasileira — é uma responsabilidade de toda a humanidade.",
+      "perguntas": [
+        {
+          "pergunta": "Por que preservar a Amazônia é considerado responsabilidade de toda a humanidade?",
+          "opcoes": [
+            "Porque a Amazônia pertence a vários países.",
+            "Porque ela regula o clima do planeta e abriga espécies únicas.",
+            "Porque o Brasil não tem recursos para preservá-la sozinho.",
+            "Porque é a maior floresta do mundo."
+          ],
+          "resposta": 1,
+          "explicacao": "O texto afirma que a Amazônia regula o clima do planeta — um benefício global — tornando sua preservação responsabilidade de todos."
+        }
+      ]
+    }
+  ],
+  "redacao": {
+    "tipos": [
+      {
+        "nome": "Dissertativo-Argumentativo",
+        "descricao": "O tipo mais cobrado no ENEM. Você deve defender um ponto de vista com argumentos sólidos.",
+        "estrutura": [
+          {
+            "parte": "Introdução",
+            "dicas": [
+              "Apresente o tema de forma criativa (cite um dado, uma frase famosa, um contexto histórico).",
+              "Termine com a tese: sua posição sobre o tema.",
+              "Tamanho ideal: 3 a 5 linhas."
+            ]
+          },
+          {
+            "parte": "Desenvolvimento (1° parágrafo)",
+            "dicas": [
+              "Apresente o primeiro argumento.",
+              "Explique e exemplifique com dados, fatos ou citações.",
+              "Use conectivos: 'primeiramente', 'além disso', 'nesse sentido'.",
+              "Tamanho ideal: 7 a 10 linhas."
+            ]
+          },
+          {
+            "parte": "Desenvolvimento (2° parágrafo)",
+            "dicas": [
+              "Apresente o segundo argumento (diferente do primeiro).",
+              "Conectivos úteis: 'ademais', 'outrossim', 'por outro lado'.",
+              "Tamanho ideal: 7 a 10 linhas."
+            ]
+          },
+          {
+            "parte": "Conclusão",
+            "dicas": [
+              "Retome a tese sem repetir as mesmas palavras.",
+              "Apresente uma proposta de intervenção (no ENEM: quem faz + o quê + como + para quê).",
+              "Tamanho ideal: 4 a 6 linhas."
+            ]
+          }
+        ],
+        "conectivos": {
+          "adicao": ["além disso", "ademais", "outrossim", "também", "ainda"],
+          "contraste": ["no entanto", "porém", "todavia", "contudo", "entretanto"],
+          "conclusao": ["portanto", "logo", "assim", "dessa forma", "por fim"],
+          "causa": ["porque", "pois", "visto que", "uma vez que"],
+          "consequencia": ["consequentemente", "de modo que", "por isso"]
+        }
+      },
+      {
+        "nome": "Narrativo",
+        "descricao": "Conta uma história com personagens, tempo, espaço e conflito.",
+        "estrutura": [
+          {"parte": "Situação inicial", "dicas": ["Apresente os personagens e o cenário."]},
+          {"parte": "Complicação", "dicas": ["Introduza o problema ou conflito da história."]},
+          {"parte": "Clímax", "dicas": ["O ponto de maior tensão da narrativa."]},
+          {"parte": "Desfecho", "dicas": ["Resolução do conflito."]}
+        ]
+      }
+    ],
+    "gramatica": [
+      {
+        "topico": "Concordância Verbal",
+        "regra": "O verbo concorda em número e pessoa com o sujeito.",
+        "exemplos": [
+          {"errado": "Os alunos estudou muito.", "certo": "Os alunos estudaram muito.", "explicacao": "Sujeito plural → verbo no plural."},
+          {"errado": "A gente fomos ao cinema.", "certo": "A gente foi ao cinema.", "explicacao": "'A gente' é singular → verbo na 3ª pessoa do singular."}
+        ]
+      },
+      {
+        "topico": "Concordância Nominal",
+        "regra": "Adjetivos, artigos e pronomes concordam em gênero e número com o substantivo.",
+        "exemplos": [
+          {"errado": "As meninas estavam cansados.", "certo": "As meninas estavam cansadas.", "explicacao": "Adjetivo concorda com substantivo feminino plural."},
+          {"errado": "Comprei roupas bonito.", "certo": "Comprei roupas bonitas.", "explicacao": "Adjetivo no plural feminino."}
+        ]
+      },
+      {
+        "topico": "Crase",
+        "regra": "Usa-se crase na fusão da preposição 'a' com o artigo 'a(s)' ou com pronomes demonstrativos.",
+        "exemplos": [
+          {"errado": "Fui a escola.", "certo": "Fui à escola.", "explicacao": "escola = feminino + artigo 'a' → crase."},
+          {"errado": "Às vezes eu chego à tarde.", "certo": "Às vezes eu chego à tarde.", "explicacao": "Correto nos dois casos: 'às vezes' (a+as) e 'à tarde' (a+a)."},
+          {"errado": "Vou à Paris amanhã.", "certo": "Vou a Paris amanhã.", "explicacao": "Nomes de cidades sem artigo → sem crase (exceto: 'à Bahia', 'à Havana')."}
+        ]
+      }
+    ]
+  },
+  "conceitos": [
+    {
+      "id": "substantivo",
+      "nome": "Substantivo",
+      "emoji": "🏷️",
+      "definicao": "Palavra que nomeia seres, objetos, lugares, sentimentos ou ideias.",
+      "dica": "Pode receber artigo (o, a, os, as) antes.",
+      "exemplos": ["casa", "amor", "Brasil", "felicidade", "carro"],
+      "frases": ["A **casa** é bonita.", "O **amor** transforma.", "Sinto muita **felicidade**."],
+      "subcategorias": [
+        {"nome": "Próprio", "ex": "Brasil, Ana, São Paulo"},
+        {"nome": "Comum", "ex": "cidade, pessoa, lugar"},
+        {"nome": "Concreto", "ex": "mesa, cão, pedra"},
+        {"nome": "Abstrato", "ex": "amor, coragem, esperança"},
+        {"nome": "Coletivo", "ex": "cardume (peixes), bando (pássaros)"}
+      ]
+    },
+    {
+      "id": "adjetivo",
+      "nome": "Adjetivo",
+      "emoji": "🎨",
+      "definicao": "Palavra que caracteriza ou qualifica o substantivo.",
+      "dica": "Concorda em gênero e número com o substantivo que acompanha.",
+      "exemplos": ["bonito/bonita", "alto/alta", "inteligente", "feliz", "brasileiro"],
+      "frases": ["O dia estava **ensolarado**.", "Ela é muito **dedicada**.", "Um trabalho **excelente**."],
+      "subcategorias": [
+        {"nome": "Qualificativo", "ex": "bonito, rápido, triste"},
+        {"nome": "Pátrio", "ex": "brasileiro, paulistano, francês"},
+        {"nome": "Locução adjetiva", "ex": "de ouro (dourado), de pedra (pétreo)"}
+      ]
+    },
+    {
+      "id": "verbo",
+      "nome": "Verbo",
+      "emoji": "⚡",
+      "definicao": "Palavra que indica ação, estado, fenômeno ou processo.",
+      "dica": "É o núcleo do predicado. Todo verbo pode ser conjugado.",
+      "exemplos": ["correr", "ser", "estar", "chover", "sentir"],
+      "frases": ["Ela **corre** todos os dias.", "O céu **chove**.","Eu **estou** bem."],
+      "subcategorias": [
+        {"nome": "Ação", "ex": "correr, estudar, construir"},
+        {"nome": "Estado", "ex": "ser, estar, ficar, parecer"},
+        {"nome": "Fenômeno", "ex": "chover, nevar, anoitecer"},
+        {"nome": "Regular", "ex": "amar, vender, partir"},
+        {"nome": "Irregular", "ex": "ser, ir, ter, fazer, vir"}
+      ]
+    },
+    {
+      "id": "adverbio",
+      "nome": "Advérbio",
+      "emoji": "🔧",
+      "definicao": "Palavra que modifica verbo, adjetivo ou outro advérbio. É invariável (não muda de gênero/número).",
+      "dica": "Muitos advérbios terminam em -mente (rapidamente, felizmente). Pergunta: como? quando? onde? quanto?",
+      "exemplos": ["rapidamente", "muito", "aqui", "ontem", "não", "talvez"],
+      "frases": ["Ela chegou **tarde**.", "O filme é **muito** bom.", "Ele **não** foi."],
+      "subcategorias": [
+        {"nome": "Modo", "ex": "bem, mal, rapidamente"},
+        {"nome": "Tempo", "ex": "ontem, hoje, sempre, nunca"},
+        {"nome": "Lugar", "ex": "aqui, lá, dentro, fora"},
+        {"nome": "Intensidade", "ex": "muito, pouco, bastante"},
+        {"nome": "Negação", "ex": "não, jamais, nunca"}
+      ]
+    },
+    {
+      "id": "sujeito",
+      "nome": "Sujeito",
+      "emoji": "👤",
+      "definicao": "Termo sobre o qual se diz algo na oração. Com ele, o verbo concorda em número e pessoa.",
+      "dica": "Pergunte 'quem?' ou 'o quê?' antes do verbo para encontrar o sujeito.",
+      "exemplos": ["Os alunos estudaram.", "Choveu muito.", "Chegaram as notícias."],
+      "frases": ["**Os alunos** estudaram muito.", "**Maria** saiu cedo.", "**O vento** agitou as folhas."],
+      "subcategorias": [
+        {"nome": "Simples", "ex": "Um único núcleo: 'O menino correu.'"},
+        {"nome": "Composto", "ex": "Dois ou mais núcleos: 'Ana e Bruno vieram.'"},
+        {"nome": "Oculto/Elíptico", "ex": "Identificado pela desinência: 'Fui ao mercado.' (eu)"},
+        {"nome": "Indeterminado", "ex": "Não identificável: 'Precisam de voluntários.'"},
+        {"nome": "Inexistente", "ex": "Verbos impessoais: 'Choveu.', 'Havia pessoas.'"}
+      ]
+    },
+    {
+      "id": "predicado",
+      "nome": "Predicado",
+      "emoji": "📢",
+      "definicao": "Tudo o que se diz sobre o sujeito. Sempre contém um verbo.",
+      "dica": "Se tirar o sujeito, o que sobrar é o predicado.",
+      "exemplos": ["Ana [chegou cedo].", "O gato [é preguiçoso].", "Pedro [comprou um livro]."],
+      "frases": ["Os alunos **estudaram a matéria**.", "O céu **estava nublado**.", "Ela **entregou o trabalho**."],
+      "subcategorias": [
+        {"nome": "Verbal", "ex": "Verbo de ação: 'Pedro dormiu.'"},
+        {"nome": "Nominal", "ex": "Verbo de ligação + predicativo: 'Ana é inteligente.'"},
+        {"nome": "Verbo-nominal", "ex": "'Pedro chegou cansado.' (ação + estado)"}
+      ]
+    },
+    {
+      "id": "preposicao",
+      "nome": "Preposição",
+      "emoji": "🔗",
+      "definicao": "Palavra que liga termos da oração, estabelecendo relações entre eles. É invariável.",
+      "dica": "As mais usadas: a, ante, com, contra, de, em, entre, para, por, sem, sob, sobre.",
+      "exemplos": ["Fui **a** escola.", "Gosto **de** música.", "Saiu **com** pressa."],
+      "frases": ["Viajei **para** o Rio.", "Saí **de** casa.", "Estou **com** fome."],
+      "subcategorias": [
+        {"nome": "Essenciais", "ex": "a, ante, após, até, com, contra, de, desde, em, entre, para, per, perante, por, sem, sob, sobre, trás"},
+        {"nome": "Acidentais", "ex": "conforme, consoante, durante, exceto, salvo, segundo, visto"}
+      ]
+    },
+    {
+      "id": "conjuncao",
+      "nome": "Conjunção",
+      "emoji": "⚓",
+      "definicao": "Palavra que liga orações ou termos de mesma função. Invariável.",
+      "dica": "Liga duas ideias: adição (e), contraste (mas), causa (porque), conclusão (portanto).",
+      "exemplos": ["e, mas, ou, porque, portanto, embora, quando"],
+      "frases": ["Estudei **mas** não passei.", "Chegou **porque** queria.", "**Embora** chovesse, saí."],
+      "subcategorias": [
+        {"nome": "Coordenativas aditivas", "ex": "e, nem, mas também"},
+        {"nome": "Coordenativas adversativas", "ex": "mas, porém, contudo, entretanto"},
+        {"nome": "Coordenativas conclusivas", "ex": "logo, portanto, então"},
+        {"nome": "Subordinativas causais", "ex": "porque, pois, visto que"},
+        {"nome": "Subordinativas concessivas", "ex": "embora, ainda que, mesmo que"}
+      ]
+    },
+    {
+      "id": "tempos_verbais",
+      "nome": "Tempos Verbais",
+      "emoji": "⏰",
+      "definicao": "Indicam quando a ação acontece: passado, presente ou futuro.",
+      "dica": "Pretérito = passado. Presente = agora. Futuro = ainda vai acontecer.",
+      "exemplos": ["Fui (pretérito perfeito)", "Vou (presente)", "Irei (futuro)"],
+      "frases": ["Eu **estudei** ontem. (passado)", "Eu **estudo** agora. (presente)", "Eu **estudarei** amanhã. (futuro)"],
+      "subcategorias": [
+        {"nome": "Presente do Indicativo", "ex": "Eu como, Tu comes — ação habitual ou atual"},
+        {"nome": "Pretérito Perfeito", "ex": "Eu comi — ação concluída no passado"},
+        {"nome": "Pretérito Imperfeito", "ex": "Eu comia — ação habitual no passado"},
+        {"nome": "Pretérito Mais-que-Perfeito", "ex": "Eu comera / tinha comido — anterior a outro passado"},
+        {"nome": "Futuro do Presente", "ex": "Eu comerei — ação futura"},
+        {"nome": "Futuro do Pretérito", "ex": "Eu comeria — ação hipotética (condicional)"}
+      ]
+    }
+  ]
+}
