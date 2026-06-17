@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Python {{ level.name }}{% endblock %}
+{% block page_title %}Python — {{ level.name }}{% endblock %}
+
+{% block content %}
+<div class="mb-3">
+  <a href="/python" class="text-decoration-none text-muted"><i class="bi bi-arrow-left"></i> Python</a>
+</div>
+
+{% set colors = {'basico':'#16a34a','intermediario':'#ca8a04','avancado':'#dc2626'} %}
+{% set color = colors.get(level.id, '#6b7280') %}
+
+<div class="card p-3 mb-3" style="background: linear-gradient(135deg, {{ color }}, {{ color }}cc); color:white">
+  <div class="d-flex align-items-center gap-3">
+    <span style="font-size:2.5rem">{{ level.icon }}</span>
+    <div>
+      <h5 class="fw-bold mb-0">{{ level.name }}</h5>
+      <small class="opacity-75">{{ level.description }}</small>
+    </div>
+  </div>
+</div>
+
+<h6 class="fw-semibold mb-3 text-muted">{{ level.topics|length }} tópicos neste nível</h6>
+
+<div class="row g-3">
+  {% for topic in level.topics %}
+  <div class="col-12">
+    <a href="/python/{{ level.id }}/{{ topic.id }}" class="text-decoration-none">
+      <div class="card card-hover p-3">
+        <div class="d-flex align-items-center">
+          <div class="me-3 rounded-circle d-flex align-items-center justify-content-center"
+               style="width:36px;height:36px;background:{{ color }}22;color:{{ color }};font-weight:bold;flex-shrink:0">
+            {{ loop.index }}
+          </div>
+          <div class="flex-grow-1">
+            <div class="fw-bold">{{ topic.title }}</div>
+            <div class="text-muted small" style="overflow:hidden;max-height:2.5em">{{ topic.explanation[:90] }}...</div>
+            <div class="mt-1">
+              {% if topic.code_examples %}
+              <span class="badge bg-dark" style="font-size:.65rem">{{ topic.code_examples|length }} exemplos</span>
+              {% endif %}
+              {% if topic.quiz %}
+              <span class="badge bg-warning text-dark ms-1" style="font-size:.65rem">{{ topic.quiz|length }} questões</span>
+              {% endif %}
+            </div>
+          </div>
+          <i class="bi bi-chevron-right text-muted ms-2"></i>
+        </div>
+      </div>
+    </a>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+{% block title %}{{ topic.title }} — Python{% endblock %}
+{% block page_title %}{{ level.name }} › {{ topic.title }}{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+<style>
+  pre { border-radius: 10px; font-size: .82rem; margin: 0; }
+  .hljs { padding: 14px 16px; border-radius: 10px; }
+  .code-block { position: relative; margin-bottom: 12px; }
+  .copy-btn {
+    position: absolute; top: 8px; right: 8px;
+    background: rgba(255,255,255,.15); border: none;
+    color: white; border-radius: 6px; padding: 3px 10px; font-size: .7rem; cursor: pointer;
+  }
+  .copy-btn:hover { background: rgba(255,255,255,.3); }
+  .output-box {
+    background: #0f172a; color: #a3e635; border-radius: 10px;
+    padding: 10px 14px; font-family: monospace; font-size: .82rem;
+    white-space: pre; overflow-x: auto;
+  }
+  .concept-chip {
+    display: inline-block; background: #f1f5f9; border: 1px solid #e2e8f0;
+    border-radius: 8px; padding: 5px 12px; margin: 3px; font-size: .82rem;
+  }
+  .concept-chip code { background: none; padding: 0; color: #dc2626; font-size: .85rem; }
+  .quiz-option { cursor: pointer; transition: background .15s; border-radius: 10px; }
+  .quiz-option:hover { background: #f8fafc; }
+  .quiz-option.correct { background: #dcfce7; border-color: #16a34a !important; }
+  .quiz-option.wrong { background: #fee2e2; border-color: #dc2626 !important; }
+  .nav-bottom-btns a { border-radius: 10px; font-size: .85rem; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="mb-3 d-flex align-items-center gap-2">
+  <a href="/python/{{ level.id }}" class="text-decoration-none text-muted"><i class="bi bi-arrow-left"></i></a>
+  <span class="text-muted small">{{ level.name }} › {{ topic.title }}</span>
+</div>
+
+<!-- HEADER -->
+<div class="card p-3 mb-3" style="background:linear-gradient(135deg,#1e293b,#334155);color:white">
+  <h5 class="fw-bold mb-1">{{ topic.title }}</h5>
+  <p class="mb-0 small opacity-75">{{ topic.explanation }}</p>
+</div>
+
+<!-- CONCEPTS -->
+{% if topic.concepts %}
+<div class="card p-3 mb-3">
+  <h6 class="fw-bold mb-2"><i class="bi bi-lightbulb me-1 text-warning"></i>Conceitos-chave</h6>
+  <div>
+    {% for c in topic.concepts %}
+    <span class="concept-chip">{{ c | replace('→', '<span style="color:#6b7280"> → </span>') | safe }}</span>
+    {% endfor %}
+  </div>
+</div>
+{% endif %}
+
+<!-- CODE EXAMPLES -->
+{% if topic.code_examples %}
+<h6 class="fw-semibold mb-2"><i class="bi bi-code-slash me-1"></i>Exemplos de Código</h6>
+{% for ex in topic.code_examples %}
+<div class="card p-3 mb-3">
+  <div class="fw-semibold small mb-2">{{ loop.index }}. {{ ex.title }}</div>
+  <div class="code-block">
+    <pre><code class="language-python">{{ ex.code }}</code></pre>
+    <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+  </div>
+  {% if ex.output %}
+  <div class="small text-muted mb-1 mt-2"><i class="bi bi-terminal me-1"></i>Saída:</div>
+  <div class="output-box">{{ ex.output }}</div>
+  {% endif %}
+  {% if ex.explanation %}
+  <div class="mt-2 small text-muted">
+    <i class="bi bi-info-circle me-1 text-primary"></i>{{ ex.explanation }}
+  </div>
+  {% endif %}
+</div>
+{% endfor %}
+{% endif %}
+
+<!-- QUIZ -->
+{% if topic.quiz %}
+<div class="card p-3 mb-3" style="background:#fefce8; border:1px solid #fef08a">
+  <h6 class="fw-bold mb-3">🧠 Pratique — Mini-Quiz</h6>
+  {% for pergunta in topic.quiz %}
+  {% set qi = loop.index0 %}
+  <div class="mb-4" id="pyq{{ qi }}">
+    <p class="fw-semibold small mb-2">{{ loop.index }}. {{ pergunta.question }}</p>
+    <div id="pyopts{{ qi }}">
+      {% for opcao in pergunta.options %}
+      {% set oi = loop.index0 %}
+      <div class="quiz-option border rounded p-2 mb-2 small"
+           onclick="checkPy({{ qi }}, {{ oi }}, {{ pergunta.answer }}, {{ pergunta.explanation | tojson }})">
+        <span class="badge bg-secondary me-1" style="font-size:.65rem">{{ ['A','B','C','D'][oi] }}</span>{{ opcao }}
+      </div>
+      {% endfor %}
+    </div>
+    <div id="pyfb{{ qi }}" style="display:none" class="mt-1"></div>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+<!-- NAVIGATION -->
+<div class="nav-bottom-btns d-flex gap-2 mb-3">
+  {% if prev_topic %}
+  <a href="/python/{{ level.id }}/{{ prev_topic.id }}" class="btn btn-outline-secondary flex-fill">
+    ← {{ prev_topic.title }}
+  </a>
+  {% endif %}
+  {% if next_topic %}
+  <a href="/python/{{ level.id }}/{{ next_topic.id }}" class="btn btn-dark flex-fill">
+    {{ next_topic.title }} →
+  </a>
+  {% else %}
+  <a href="/python" class="btn btn-outline-dark flex-fill">Ver todos os níveis →</a>
+  {% endif %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<script>
+function copyCode(btn) {
+  const code = btn.previousElementSibling.textContent;
+  navigator.clipboard.writeText(code).then(() => {
+    btn.textContent = '✓ Copiado';
+    setTimeout(() => btn.textContent = 'Copiar', 2000);
+  });
+}
+
+function checkPy(qi, selected, correct, explanation) {
+  const opts = document.querySelectorAll(`#pyopts${qi} .quiz-option`);
+  opts.forEach((opt, i) => {
+    opt.onclick = null;
+    if (i === correct) opt.classList.add('correct');
+  });
+  if (selected !== correct) opts[selected].classList.add('wrong');
+  const fb = document.getElementById(`pyfb${qi}`);
+  fb.style.display = 'block';
+  fb.innerHTML = selected === correct
+    ? `<div class="alert alert-success py-2 mb-0 small"><i class="bi bi-check-circle-fill me-1"></i><strong>Correto!</strong> ${explanation}</div>`
+    : `<div class="alert alert-danger py-2 mb-0 small"><i class="bi bi-x-circle-fill me-1"></i><strong>Incorreto.</strong> ${explanation}</div>`;
+}
+</script>
+{% endblock %}

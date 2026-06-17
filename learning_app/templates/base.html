@@ -69,6 +69,9 @@
   <a href="/" class="{% if request.path == '/' %}active{% endif %}">
     <i class="bi bi-house-fill"></i>Início
   </a>
+  <a href="/python" class="{% if '/python' in request.path %}active{% endif %}">
+    <i class="bi bi-code-slash"></i>Python
+  </a>
   <a href="/math" class="{% if '/math' in request.path %}active{% endif %}">
     <i class="bi bi-calculator-fill"></i>Matemática
   </a>

@@ -166,5 +166,145 @@
         ]
       }
     ]
-  }
+  },
+  "conceitos": [
+    {
+      "id": "substantivo",
+      "nome": "Substantivo",
+      "emoji": "🏷️",
+      "definicao": "Palavra que nomeia seres, objetos, lugares, sentimentos ou ideias.",
+      "dica": "Pode receber artigo (o, a, os, as) antes.",
+      "exemplos": ["casa", "amor", "Brasil", "felicidade", "carro"],
+      "frases": ["A **casa** é bonita.", "O **amor** transforma.", "Sinto muita **felicidade**."],
+      "subcategorias": [
+        {"nome": "Próprio", "ex": "Brasil, Ana, São Paulo"},
+        {"nome": "Comum", "ex": "cidade, pessoa, lugar"},
+        {"nome": "Concreto", "ex": "mesa, cão, pedra"},
+        {"nome": "Abstrato", "ex": "amor, coragem, esperança"},
+        {"nome": "Coletivo", "ex": "cardume (peixes), bando (pássaros)"}
+      ]
+    },
+    {
+      "id": "adjetivo",
+      "nome": "Adjetivo",
+      "emoji": "🎨",
+      "definicao": "Palavra que caracteriza ou qualifica o substantivo.",
+      "dica": "Concorda em gênero e número com o substantivo que acompanha.",
+      "exemplos": ["bonito/bonita", "alto/alta", "inteligente", "feliz", "brasileiro"],
+      "frases": ["O dia estava **ensolarado**.", "Ela é muito **dedicada**.", "Um trabalho **excelente**."],
+      "subcategorias": [
+        {"nome": "Qualificativo", "ex": "bonito, rápido, triste"},
+        {"nome": "Pátrio", "ex": "brasileiro, paulistano, francês"},
+        {"nome": "Locução adjetiva", "ex": "de ouro (dourado), de pedra (pétreo)"}
+      ]
+    },
+    {
+      "id": "verbo",
+      "nome": "Verbo",
+      "emoji": "⚡",
+      "definicao": "Palavra que indica ação, estado, fenômeno ou processo.",
+      "dica": "É o núcleo do predicado. Todo verbo pode ser conjugado.",
+      "exemplos": ["correr", "ser", "estar", "chover", "sentir"],
+      "frases": ["Ela **corre** todos os dias.", "O céu **chove**.","Eu **estou** bem."],
+      "subcategorias": [
+        {"nome": "Ação", "ex": "correr, estudar, construir"},
+        {"nome": "Estado", "ex": "ser, estar, ficar, parecer"},
+        {"nome": "Fenômeno", "ex": "chover, nevar, anoitecer"},
+        {"nome": "Regular", "ex": "amar, vender, partir"},
+        {"nome": "Irregular", "ex": "ser, ir, ter, fazer, vir"}
+      ]
+    },
+    {
+      "id": "adverbio",
+      "nome": "Advérbio",
+      "emoji": "🔧",
+      "definicao": "Palavra que modifica verbo, adjetivo ou outro advérbio. É invariável (não muda de gênero/número).",
+      "dica": "Muitos advérbios terminam em -mente (rapidamente, felizmente). Pergunta: como? quando? onde? quanto?",
+      "exemplos": ["rapidamente", "muito", "aqui", "ontem", "não", "talvez"],
+      "frases": ["Ela chegou **tarde**.", "O filme é **muito** bom.", "Ele **não** foi."],
+      "subcategorias": [
+        {"nome": "Modo", "ex": "bem, mal, rapidamente"},
+        {"nome": "Tempo", "ex": "ontem, hoje, sempre, nunca"},
+        {"nome": "Lugar", "ex": "aqui, lá, dentro, fora"},
+        {"nome": "Intensidade", "ex": "muito, pouco, bastante"},
+        {"nome": "Negação", "ex": "não, jamais, nunca"}
+      ]
+    },
+    {
+      "id": "sujeito",
+      "nome": "Sujeito",
+      "emoji": "👤",
+      "definicao": "Termo sobre o qual se diz algo na oração. Com ele, o verbo concorda em número e pessoa.",
+      "dica": "Pergunte 'quem?' ou 'o quê?' antes do verbo para encontrar o sujeito.",
+      "exemplos": ["Os alunos estudaram.", "Choveu muito.", "Chegaram as notícias."],
+      "frases": ["**Os alunos** estudaram muito.", "**Maria** saiu cedo.", "**O vento** agitou as folhas."],
+      "subcategorias": [
+        {"nome": "Simples", "ex": "Um único núcleo: 'O menino correu.'"},
+        {"nome": "Composto", "ex": "Dois ou mais núcleos: 'Ana e Bruno vieram.'"},
+        {"nome": "Oculto/Elíptico", "ex": "Identificado pela desinência: 'Fui ao mercado.' (eu)"},
+        {"nome": "Indeterminado", "ex": "Não identificável: 'Precisam de voluntários.'"},
+        {"nome": "Inexistente", "ex": "Verbos impessoais: 'Choveu.', 'Havia pessoas.'"}
+      ]
+    },
+    {
+      "id": "predicado",
+      "nome": "Predicado",
+      "emoji": "📢",
+      "definicao": "Tudo o que se diz sobre o sujeito. Sempre contém um verbo.",
+      "dica": "Se tirar o sujeito, o que sobrar é o predicado.",
+      "exemplos": ["Ana [chegou cedo].", "O gato [é preguiçoso].", "Pedro [comprou um livro]."],
+      "frases": ["Os alunos **estudaram a matéria**.", "O céu **estava nublado**.", "Ela **entregou o trabalho**."],
+      "subcategorias": [
+        {"nome": "Verbal", "ex": "Verbo de ação: 'Pedro dormiu.'"},
+        {"nome": "Nominal", "ex": "Verbo de ligação + predicativo: 'Ana é inteligente.'"},
+        {"nome": "Verbo-nominal", "ex": "'Pedro chegou cansado.' (ação + estado)"}
+      ]
+    },
+    {
+      "id": "preposicao",
+      "nome": "Preposição",
+      "emoji": "🔗",
+      "definicao": "Palavra que liga termos da oração, estabelecendo relações entre eles. É invariável.",
+      "dica": "As mais usadas: a, ante, com, contra, de, em, entre, para, por, sem, sob, sobre.",
+      "exemplos": ["Fui **a** escola.", "Gosto **de** música.", "Saiu **com** pressa."],
+      "frases": ["Viajei **para** o Rio.", "Saí **de** casa.", "Estou **com** fome."],
+      "subcategorias": [
+        {"nome": "Essenciais", "ex": "a, ante, após, até, com, contra, de, desde, em, entre, para, per, perante, por, sem, sob, sobre, trás"},
+        {"nome": "Acidentais", "ex": "conforme, consoante, durante, exceto, salvo, segundo, visto"}
+      ]
+    },
+    {
+      "id": "conjuncao",
+      "nome": "Conjunção",
+      "emoji": "⚓",
+      "definicao": "Palavra que liga orações ou termos de mesma função. Invariável.",
+      "dica": "Liga duas ideias: adição (e), contraste (mas), causa (porque), conclusão (portanto).",
+      "exemplos": ["e, mas, ou, porque, portanto, embora, quando"],
+      "frases": ["Estudei **mas** não passei.", "Chegou **porque** queria.", "**Embora** chovesse, saí."],
+      "subcategorias": [
+        {"nome": "Coordenativas aditivas", "ex": "e, nem, mas também"},
+        {"nome": "Coordenativas adversativas", "ex": "mas, porém, contudo, entretanto"},
+        {"nome": "Coordenativas conclusivas", "ex": "logo, portanto, então"},
+        {"nome": "Subordinativas causais", "ex": "porque, pois, visto que"},
+        {"nome": "Subordinativas concessivas", "ex": "embora, ainda que, mesmo que"}
+      ]
+    },
+    {
+      "id": "tempos_verbais",
+      "nome": "Tempos Verbais",
+      "emoji": "⏰",
+      "definicao": "Indicam quando a ação acontece: passado, presente ou futuro.",
+      "dica": "Pretérito = passado. Presente = agora. Futuro = ainda vai acontecer.",
+      "exemplos": ["Fui (pretérito perfeito)", "Vou (presente)", "Irei (futuro)"],
+      "frases": ["Eu **estudei** ontem. (passado)", "Eu **estudo** agora. (presente)", "Eu **estudarei** amanhã. (futuro)"],
+      "subcategorias": [
+        {"nome": "Presente do Indicativo", "ex": "Eu como, Tu comes — ação habitual ou atual"},
+        {"nome": "Pretérito Perfeito", "ex": "Eu comi — ação concluída no passado"},
+        {"nome": "Pretérito Imperfeito", "ex": "Eu comia — ação habitual no passado"},
+        {"nome": "Pretérito Mais-que-Perfeito", "ex": "Eu comera / tinha comido — anterior a outro passado"},
+        {"nome": "Futuro do Presente", "ex": "Eu comerei — ação futura"},
+        {"nome": "Futuro do Pretérito", "ex": "Eu comeria — ação hipotética (condicional)"}
+      ]
+    }
+  ]
 }

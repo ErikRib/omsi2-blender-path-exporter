@@ -183,6 +183,25 @@ def portugues_gramatica():
     return render_template("portuguese/gramatica.html", gramatica=data["redacao"]["gramatica"])
 
 
+@app.route("/portugues/conceitos")
+def portugues_conceitos():
+    data = load_json(os.path.join(DATA_DIR, "portuguese", "content.json"))
+    return render_template("portuguese/conceitos.html", conceitos=data["conceitos"])
+
+
+@app.route("/portugues/conceitos/<conceito_id>")
+def portugues_conceito(conceito_id):
+    data = load_json(os.path.join(DATA_DIR, "portuguese", "content.json"))
+    conceitos = data["conceitos"]
+    conceito = next((c for c in conceitos if c["id"] == conceito_id), None)
+    if not conceito:
+        return render_template("404.html"), 404
+    idx = next(i for i, c in enumerate(conceitos) if c["id"] == conceito_id)
+    prev_c = conceitos[idx - 1] if idx > 0 else None
+    next_c = conceitos[idx + 1] if idx < len(conceitos) - 1 else None
+    return render_template("portuguese/conceito.html", conceito=conceito, prev_c=prev_c, next_c=next_c)
+
+
 # ── ENGLISH ───────────────────────────────────────────────────────────────────
 
 @app.route("/ingles")
@@ -218,6 +237,40 @@ def ingles_vocab(level_id):
     vocab = data["vocabulary"].get(level_id.upper(), [])
     level = next((l for l in data["levels"] if l["id"] == level_id.upper()), None)
     return render_template("english/vocabulary.html", vocab=vocab, level=level, level_id=level_id.upper())
+
+
+# ── PYTHON ────────────────────────────────────────────────────────────────────
+
+@app.route("/python")
+def python_index():
+    data = load_json(os.path.join(DATA_DIR, "python", "content.json"))
+    return render_template("python/index.html", levels=data["levels"])
+
+
+@app.route("/python/<level_id>")
+def python_level(level_id):
+    data = load_json(os.path.join(DATA_DIR, "python", "content.json"))
+    level = next((l for l in data["levels"] if l["id"] == level_id), None)
+    if not level:
+        return render_template("404.html"), 404
+    return render_template("python/level.html", level=level)
+
+
+@app.route("/python/<level_id>/<topic_id>")
+def python_topic(level_id, topic_id):
+    data = load_json(os.path.join(DATA_DIR, "python", "content.json"))
+    level = next((l for l in data["levels"] if l["id"] == level_id), None)
+    if not level:
+        return render_template("404.html"), 404
+    topic = next((t for t in level["topics"] if t["id"] == topic_id), None)
+    if not topic:
+        return render_template("404.html"), 404
+    all_topics = level["topics"]
+    topic_index = next(i for i, t in enumerate(all_topics) if t["id"] == topic_id)
+    prev_topic = all_topics[topic_index - 1] if topic_index > 0 else None
+    next_topic = all_topics[topic_index + 1] if topic_index < len(all_topics) - 1 else None
+    return render_template("python/topic.html", level=level, topic=topic,
+                           prev_topic=prev_topic, next_topic=next_topic)
 
 
 if __name__ == "__main__":
